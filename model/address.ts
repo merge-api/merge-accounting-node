@@ -11,6 +11,7 @@
  */
 
 import { RequestFile } from './models';
+import { AddressTypeEnum } from './addressTypeEnum';
 import { CountryEnum } from './countryEnum';
 import { StateEnum } from './stateEnum';
 
@@ -18,6 +19,10 @@ import { StateEnum } from './stateEnum';
 * # The Address Object ### Description The `Address` object is used to represent a contact\'s or company\'s address.  ### Usage Example Fetch from the `GET CompanyInfo` endpoint and view the company\'s addresses.
 */
 export class Address {
+    /**
+    * The address type.
+    */
+    'type'?: AddressTypeEnum | null;
     /**
     * Line 1 of the address\'s street.
     */
@@ -46,6 +51,11 @@ export class Address {
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "AddressTypeEnum"
+        },
         {
             "name": "street_1",
             "baseName": "street_1",

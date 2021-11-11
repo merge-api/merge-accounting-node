@@ -1,15 +1,22 @@
 import localVarRequest from 'request';
 
 export * from './account';
+export * from './accountDetails';
+export * from './accountDetailsAndActions';
+export * from './accountDetailsAndActionsIntegration';
+export * from './accountDetailsAndActionsStatusEnum';
 export * from './accountIntegration';
 export * from './accountStatusEnum';
 export * from './accountToken';
 export * from './accountingAttachment';
 export * from './accountingPhoneNumber';
 export * from './address';
+export * from './addressTypeEnum';
 export * from './availableActions';
 export * from './balanceSheet';
 export * from './cashFlowStatement';
+export * from './categoriesEnum';
+export * from './categoryEnum';
 export * from './classificationEnum';
 export * from './companyInfo';
 export * from './contact';
@@ -20,8 +27,10 @@ export * from './currencyEnum';
 export * from './dataPassthroughRequest';
 export * from './endUserDetailsRequest';
 export * from './generateRemoteKeyRequest';
+export * from './incomeStatement';
 export * from './invoice';
 export * from './invoiceLineItem';
+export * from './invoiceTypeEnum';
 export * from './issue';
 export * from './issueStatusEnum';
 export * from './item';
@@ -30,6 +39,7 @@ export * from './journalLine';
 export * from './linkToken';
 export * from './methodEnum';
 export * from './modelOperation';
+export * from './paginatedAccountDetailsAndActionsList';
 export * from './paginatedAccountList';
 export * from './paginatedAccountingAttachmentList';
 export * from './paginatedBalanceSheetList';
@@ -37,18 +47,17 @@ export * from './paginatedCashFlowStatementList';
 export * from './paginatedCompanyInfoList';
 export * from './paginatedContactList';
 export * from './paginatedCreditNoteList';
+export * from './paginatedIncomeStatementList';
 export * from './paginatedInvoiceList';
 export * from './paginatedIssueList';
 export * from './paginatedItemList';
 export * from './paginatedJournalEntryList';
 export * from './paginatedPaymentList';
-export * from './paginatedProfitAndLossList';
 export * from './paginatedPurchaseOrderList';
 export * from './paginatedSyncStatusList';
 export * from './paginatedTaxRateList';
 export * from './paginatedTrackingCategoryList';
 export * from './payment';
-export * from './profitAndLoss';
 export * from './purchaseOrder';
 export * from './purchaseOrderLineItem';
 export * from './purchaseOrderStatusEnum';
@@ -57,13 +66,13 @@ export * from './remoteKey';
 export * from './remoteKeyForRegenerationRequest';
 export * from './remoteResponse';
 export * from './reportItem';
+export * from './requestFormatEnum';
 export * from './stateEnum';
 export * from './status7d1Enum';
 export * from './syncStatus';
 export * from './syncStatusStatusEnum';
 export * from './taxRate';
 export * from './trackingCategory';
-export * from './typeEnum';
 
 import * as fs from 'fs';
 
@@ -79,15 +88,22 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
 import { Account } from './account';
+import { AccountDetails } from './accountDetails';
+import { AccountDetailsAndActions } from './accountDetailsAndActions';
+import { AccountDetailsAndActionsIntegration } from './accountDetailsAndActionsIntegration';
+import { AccountDetailsAndActionsStatusEnum } from './accountDetailsAndActionsStatusEnum';
 import { AccountIntegration } from './accountIntegration';
 import { AccountStatusEnum } from './accountStatusEnum';
 import { AccountToken } from './accountToken';
 import { AccountingAttachment } from './accountingAttachment';
 import { AccountingPhoneNumber } from './accountingPhoneNumber';
 import { Address } from './address';
+import { AddressTypeEnum } from './addressTypeEnum';
 import { AvailableActions } from './availableActions';
 import { BalanceSheet } from './balanceSheet';
 import { CashFlowStatement } from './cashFlowStatement';
+import { CategoriesEnum } from './categoriesEnum';
+import { CategoryEnum } from './categoryEnum';
 import { ClassificationEnum } from './classificationEnum';
 import { CompanyInfo } from './companyInfo';
 import { Contact } from './contact';
@@ -98,8 +114,10 @@ import { CurrencyEnum } from './currencyEnum';
 import { DataPassthroughRequest } from './dataPassthroughRequest';
 import { EndUserDetailsRequest } from './endUserDetailsRequest';
 import { GenerateRemoteKeyRequest } from './generateRemoteKeyRequest';
+import { IncomeStatement } from './incomeStatement';
 import { Invoice } from './invoice';
 import { InvoiceLineItem } from './invoiceLineItem';
+import { InvoiceTypeEnum } from './invoiceTypeEnum';
 import { Issue } from './issue';
 import { IssueStatusEnum } from './issueStatusEnum';
 import { Item } from './item';
@@ -108,6 +126,7 @@ import { JournalLine } from './journalLine';
 import { LinkToken } from './linkToken';
 import { MethodEnum } from './methodEnum';
 import { ModelOperation } from './modelOperation';
+import { PaginatedAccountDetailsAndActionsList } from './paginatedAccountDetailsAndActionsList';
 import { PaginatedAccountList } from './paginatedAccountList';
 import { PaginatedAccountingAttachmentList } from './paginatedAccountingAttachmentList';
 import { PaginatedBalanceSheetList } from './paginatedBalanceSheetList';
@@ -115,18 +134,17 @@ import { PaginatedCashFlowStatementList } from './paginatedCashFlowStatementList
 import { PaginatedCompanyInfoList } from './paginatedCompanyInfoList';
 import { PaginatedContactList } from './paginatedContactList';
 import { PaginatedCreditNoteList } from './paginatedCreditNoteList';
+import { PaginatedIncomeStatementList } from './paginatedIncomeStatementList';
 import { PaginatedInvoiceList } from './paginatedInvoiceList';
 import { PaginatedIssueList } from './paginatedIssueList';
 import { PaginatedItemList } from './paginatedItemList';
 import { PaginatedJournalEntryList } from './paginatedJournalEntryList';
 import { PaginatedPaymentList } from './paginatedPaymentList';
-import { PaginatedProfitAndLossList } from './paginatedProfitAndLossList';
 import { PaginatedPurchaseOrderList } from './paginatedPurchaseOrderList';
 import { PaginatedSyncStatusList } from './paginatedSyncStatusList';
 import { PaginatedTaxRateList } from './paginatedTaxRateList';
 import { PaginatedTrackingCategoryList } from './paginatedTrackingCategoryList';
 import { Payment } from './payment';
-import { ProfitAndLoss } from './profitAndLoss';
 import { PurchaseOrder } from './purchaseOrder';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
 import { PurchaseOrderStatusEnum } from './purchaseOrderStatusEnum';
@@ -135,13 +153,13 @@ import { RemoteKey } from './remoteKey';
 import { RemoteKeyForRegenerationRequest } from './remoteKeyForRegenerationRequest';
 import { RemoteResponse } from './remoteResponse';
 import { ReportItem } from './reportItem';
+import { RequestFormatEnum } from './requestFormatEnum';
 import { StateEnum } from './stateEnum';
 import { Status7d1Enum } from './status7d1Enum';
 import { SyncStatus } from './syncStatus';
 import { SyncStatusStatusEnum } from './syncStatusStatusEnum';
 import { TaxRate } from './taxRate';
 import { TrackingCategory } from './trackingCategory';
-import { TypeEnum } from './typeEnum';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -156,24 +174,32 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
+        "AccountDetailsAndActionsStatusEnum": AccountDetailsAndActionsStatusEnum,
         "AccountIntegration.CategoriesEnum": AccountIntegration.CategoriesEnum,
         "AccountStatusEnum": AccountStatusEnum,
+        "AddressTypeEnum": AddressTypeEnum,
+        "CategoriesEnum": CategoriesEnum,
+        "CategoryEnum": CategoryEnum,
         "ClassificationEnum": ClassificationEnum,
         "CountryEnum": CountryEnum,
         "CreditNoteStatusEnum": CreditNoteStatusEnum,
         "CurrencyEnum": CurrencyEnum,
         "EndUserDetailsRequest.CategoriesEnum": EndUserDetailsRequest.CategoriesEnum,
+        "InvoiceTypeEnum": InvoiceTypeEnum,
         "IssueStatusEnum": IssueStatusEnum,
         "MethodEnum": MethodEnum,
         "PurchaseOrderStatusEnum": PurchaseOrderStatusEnum,
+        "RequestFormatEnum": RequestFormatEnum,
         "StateEnum": StateEnum,
         "Status7d1Enum": Status7d1Enum,
         "SyncStatusStatusEnum": SyncStatusStatusEnum,
-        "TypeEnum": TypeEnum,
 }
 
 let typeMap: {[index: string]: any} = {
     "Account": Account,
+    "AccountDetails": AccountDetails,
+    "AccountDetailsAndActions": AccountDetailsAndActions,
+    "AccountDetailsAndActionsIntegration": AccountDetailsAndActionsIntegration,
     "AccountIntegration": AccountIntegration,
     "AccountToken": AccountToken,
     "AccountingAttachment": AccountingAttachment,
@@ -188,6 +214,7 @@ let typeMap: {[index: string]: any} = {
     "DataPassthroughRequest": DataPassthroughRequest,
     "EndUserDetailsRequest": EndUserDetailsRequest,
     "GenerateRemoteKeyRequest": GenerateRemoteKeyRequest,
+    "IncomeStatement": IncomeStatement,
     "Invoice": Invoice,
     "InvoiceLineItem": InvoiceLineItem,
     "Issue": Issue,
@@ -196,6 +223,7 @@ let typeMap: {[index: string]: any} = {
     "JournalLine": JournalLine,
     "LinkToken": LinkToken,
     "ModelOperation": ModelOperation,
+    "PaginatedAccountDetailsAndActionsList": PaginatedAccountDetailsAndActionsList,
     "PaginatedAccountList": PaginatedAccountList,
     "PaginatedAccountingAttachmentList": PaginatedAccountingAttachmentList,
     "PaginatedBalanceSheetList": PaginatedBalanceSheetList,
@@ -203,18 +231,17 @@ let typeMap: {[index: string]: any} = {
     "PaginatedCompanyInfoList": PaginatedCompanyInfoList,
     "PaginatedContactList": PaginatedContactList,
     "PaginatedCreditNoteList": PaginatedCreditNoteList,
+    "PaginatedIncomeStatementList": PaginatedIncomeStatementList,
     "PaginatedInvoiceList": PaginatedInvoiceList,
     "PaginatedIssueList": PaginatedIssueList,
     "PaginatedItemList": PaginatedItemList,
     "PaginatedJournalEntryList": PaginatedJournalEntryList,
     "PaginatedPaymentList": PaginatedPaymentList,
-    "PaginatedProfitAndLossList": PaginatedProfitAndLossList,
     "PaginatedPurchaseOrderList": PaginatedPurchaseOrderList,
     "PaginatedSyncStatusList": PaginatedSyncStatusList,
     "PaginatedTaxRateList": PaginatedTaxRateList,
     "PaginatedTrackingCategoryList": PaginatedTrackingCategoryList,
     "Payment": Payment,
-    "ProfitAndLoss": ProfitAndLoss,
     "PurchaseOrder": PurchaseOrder,
     "PurchaseOrderLineItem": PurchaseOrderLineItem,
     "RemoteData": RemoteData,
