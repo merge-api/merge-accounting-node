@@ -12,8 +12,8 @@
 
 import { RequestFile } from './models';
 
-export enum SyncStatusStatusEnum {
-    Syncing = <any> 'SYNCING',
-    Done = <any> 'DONE',
-    Failed = <any> 'FAILED'
+export enum CategoryEnum {
+    Hris = <any> 'hris',
+    Ats = <any> 'ats',
+    Accounting = <any> 'accounting'
 }

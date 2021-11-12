@@ -12,8 +12,8 @@
 
 import { RequestFile } from './models';
 
-export enum SyncStatusStatusEnum {
-    Syncing = <any> 'SYNCING',
-    Done = <any> 'DONE',
-    Failed = <any> 'FAILED'
+export enum AccountDetailsAndActionsStatusEnum {
+    Complete = <any> 'COMPLETE',
+    Incomplete = <any> 'INCOMPLETE',
+    RelinkNeeded = <any> 'RELINK_NEEDED'
 }

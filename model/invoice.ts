@@ -12,8 +12,8 @@
 
 import { RequestFile } from './models';
 import { CurrencyEnum } from './currencyEnum';
+import { InvoiceTypeEnum } from './invoiceTypeEnum';
 import { RemoteData } from './remoteData';
-import { TypeEnum } from './typeEnum';
 
 /**
 * # The Invoice Object ### Description The `Invoice` object is used to represent a company\'s invoices.  ### Usage Example Fetch from the `LIST Invoices` endpoint and view a company\'s invoices.
@@ -28,7 +28,7 @@ export class Invoice {
     /**
     * The invoice\'s type.
     */
-    'type'?: TypeEnum | null;
+    'type'?: InvoiceTypeEnum | null;
     /**
     * The invoice\'s contact.
     */
@@ -104,7 +104,7 @@ export class Invoice {
         {
             "name": "type",
             "baseName": "type",
-            "type": "TypeEnum"
+            "type": "InvoiceTypeEnum"
         },
         {
             "name": "contact",
