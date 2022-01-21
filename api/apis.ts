@@ -22,6 +22,8 @@ export * from './creditNotesApi';
 import { CreditNotesApi } from './creditNotesApi';
 export * from './deleteAccountApi';
 import { DeleteAccountApi } from './deleteAccountApi';
+export * from './forceResyncApi';
+import { ForceResyncApi } from './forceResyncApi';
 export * from './generateKeyApi';
 import { GenerateKeyApi } from './generateKeyApi';
 export * from './incomeStatementsApi';
@@ -73,4 +75,4 @@ export class HttpError extends Error {
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AccountDetailsApi, AccountTokenApi, AccountsApi, AddressesApi, AttachmentsApi, AvailableActionsApi, BalanceSheetsApi, CashFlowStatementsApi, CompanyInfoApi, ContactsApi, CreditNotesApi, DeleteAccountApi, GenerateKeyApi, IncomeStatementsApi, InvoiceLineItemsApi, InvoicesApi, IssuesApi, ItemsApi, JournalEntriesApi, JournalLinesApi, LinkTokenApi, LinkedAccountsApi, PassthroughApi, PaymentsApi, PhoneNumbersApi, PurchaseOrderLineItemsApi, PurchaseOrdersApi, RegenerateKeyApi, ReportItemsApi, SyncStatusApi, TaxRatesApi, TrackingCategoriesApi];
+export const APIS = [AccountDetailsApi, AccountTokenApi, AccountsApi, AddressesApi, AttachmentsApi, AvailableActionsApi, BalanceSheetsApi, CashFlowStatementsApi, CompanyInfoApi, ContactsApi, CreditNotesApi, DeleteAccountApi, ForceResyncApi, GenerateKeyApi, IncomeStatementsApi, InvoiceLineItemsApi, InvoicesApi, IssuesApi, ItemsApi, JournalEntriesApi, JournalLinesApi, LinkTokenApi, LinkedAccountsApi, PassthroughApi, PaymentsApi, PhoneNumbersApi, PurchaseOrderLineItemsApi, PurchaseOrdersApi, RegenerateKeyApi, ReportItemsApi, SyncStatusApi, TaxRatesApi, TrackingCategoriesApi];

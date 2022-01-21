@@ -28,6 +28,10 @@ export class JournalLine {
     * The line\'s net amount.
     */
     'net_amount'?: number | null;
+    /**
+    * The line\'s associated tracking category.
+    */
+    'tracking_category'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -46,6 +50,11 @@ export class JournalLine {
             "name": "net_amount",
             "baseName": "net_amount",
             "type": "number"
+        },
+        {
+            "name": "tracking_category",
+            "baseName": "tracking_category",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
