@@ -98,6 +98,7 @@ export class PaymentsApi {
      * @param createdAfter If provided, will only return objects created after this datetime.
      * @param createdBefore If provided, will only return objects created before this datetime.
      * @param cursor The pagination cursor value.
+     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param includeDeletedData Whether to include data that was deleted in the third-party service.
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param modifiedAfter If provided, will only return objects modified after this datetime.
@@ -105,7 +106,7 @@ export class PaymentsApi {
      * @param pageSize Number of results to return per page.
      * @param remoteId The API provider\&#39;s ID for the given object.
      */
-    public async paymentsList (xAccountToken: string, accountId?: string, contactId?: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedPaymentList;  }> {
+    public async paymentsList (xAccountToken: string, accountId?: string, contactId?: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, expand?: 'account' | 'contact' | 'contact,account', includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedPaymentList;  }> {
         const localVarPath = this.basePath + '/payments';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -141,6 +142,10 @@ export class PaymentsApi {
 
         if (cursor !== undefined) {
             localVarQueryParameters['cursor'] = ObjectSerializer.serialize(cursor, "string");
+        }
+
+        if (expand !== undefined) {
+            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'account' | 'contact' | 'contact,account'");
         }
 
         if (includeDeletedData !== undefined) {
@@ -220,9 +225,10 @@ export class PaymentsApi {
      * Returns a `Payment` object with the given `id`.
      * @param xAccountToken Token identifying the end user.
      * @param id 
+     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      */
-    public async paymentsRetrieve (xAccountToken: string, id: string, includeRemoteData?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Payment;  }> {
+    public async paymentsRetrieve (xAccountToken: string, id: string, expand?: 'account' | 'contact' | 'contact,account', includeRemoteData?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: Payment;  }> {
         const localVarPath = this.basePath + '/payments/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -244,6 +250,10 @@ export class PaymentsApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling paymentsRetrieve.');
+        }
+
+        if (expand !== undefined) {
+            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'account' | 'contact' | 'contact,account'");
         }
 
         if (includeRemoteData !== undefined) {

@@ -13,9 +13,13 @@
 import { RequestFile } from './models';
 
 /**
-* # The PurchaseOrderLineItem Object ### Description The `PurchaseOrderLineItem` object is used to represent a purchase order\'s line item.  ### Usage Example Fetch from the `GET PurchaseOrder` endpoint and view a company\'s purchase orders.
+* # The InvoiceLineItem Object ### Description The `InvoiceLineItem` object is used to represent an invoice\'s line items.  ### Usage Example Fetch from the `GET Invoice` endpoint and view the invoice\'s line items.
 */
-export class PurchaseOrderLineItem {
+export class InvoiceLineItemRequest {
+    /**
+    * The third-party API ID of the matching object.
+    */
+    'remote_id'?: string | null;
     /**
     * The line item\'s description.
     */
@@ -28,11 +32,20 @@ export class PurchaseOrderLineItem {
     * The line item\'s quantity.
     */
     'quantity'?: number | null;
+    /**
+    * The line item\'s total amount.
+    */
+    'total_amount'?: number | null;
     'item'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            "name": "remote_id",
+            "baseName": "remote_id",
+            "type": "string"
+        },
         {
             "name": "description",
             "baseName": "description",
@@ -49,13 +62,18 @@ export class PurchaseOrderLineItem {
             "type": "number"
         },
         {
+            "name": "total_amount",
+            "baseName": "total_amount",
+            "type": "number"
+        },
+        {
             "name": "item",
             "baseName": "item",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return PurchaseOrderLineItem.attributeTypeMap;
+        return InvoiceLineItemRequest.attributeTypeMap;
     }
 }
 

@@ -12,20 +12,16 @@
 
 import { RequestFile } from './models';
 import { CurrencyEnum } from './currencyEnum';
-import { InvoiceLineItem } from './invoiceLineItem';
 import { InvoiceTypeEnum } from './invoiceTypeEnum';
-import { RemoteData } from './remoteData';
 
 /**
 * # The Invoice Object ### Description The `Invoice` object is used to represent a company\'s invoices.  ### Usage Example Fetch from the `LIST Invoices` endpoint and view a company\'s invoices.
 */
-export class Invoice {
-    'id'?: string;
+export class InvoiceRequest {
     /**
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The invoice\'s type.
     */
@@ -79,25 +75,14 @@ export class Invoice {
     * Array of `Payment` object IDs.
     */
     'payments'?: Array<string>;
-    'line_items'?: Array<InvoiceLineItem>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string"
-        },
-        {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "type",
@@ -168,15 +153,10 @@ export class Invoice {
             "name": "payments",
             "baseName": "payments",
             "type": "Array<string>"
-        },
-        {
-            "name": "line_items",
-            "baseName": "line_items",
-            "type": "Array<InvoiceLineItem>"
         }    ];
 
     static getAttributeTypeMap() {
-        return Invoice.attributeTypeMap;
+        return InvoiceRequest.attributeTypeMap;
     }
 }
 

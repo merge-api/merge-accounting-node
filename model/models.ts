@@ -25,17 +25,30 @@ export * from './creditNote';
 export * from './creditNoteStatusEnum';
 export * from './currencyEnum';
 export * from './dataPassthroughRequest';
+export * from './debugModeLog';
+export * from './debugModelLogSummary';
 export * from './endUserDetailsRequest';
+export * from './errorValidationProblem';
+export * from './expense';
+export * from './expenseLine';
 export * from './generateRemoteKeyRequest';
 export * from './incomeStatement';
 export * from './invoice';
+export * from './invoiceEndpointRequest';
 export * from './invoiceLineItem';
+export * from './invoiceLineItemRequest';
+export * from './invoiceRequest';
+export * from './invoiceResponse';
 export * from './invoiceTypeEnum';
 export * from './issue';
 export * from './issueStatusEnum';
 export * from './item';
 export * from './journalEntry';
+export * from './journalEntryEndpointRequest';
+export * from './journalEntryRequest';
+export * from './journalEntryResponse';
 export * from './journalLine';
+export * from './journalLineRequest';
 export * from './linkToken';
 export * from './methodEnum';
 export * from './modelOperation';
@@ -47,6 +60,7 @@ export * from './paginatedCashFlowStatementList';
 export * from './paginatedCompanyInfoList';
 export * from './paginatedContactList';
 export * from './paginatedCreditNoteList';
+export * from './paginatedExpenseList';
 export * from './paginatedIncomeStatementList';
 export * from './paginatedInvoiceList';
 export * from './paginatedIssueList';
@@ -62,6 +76,7 @@ export * from './purchaseOrder';
 export * from './purchaseOrderLineItem';
 export * from './purchaseOrderStatusEnum';
 export * from './remoteData';
+export * from './remoteDataRequest';
 export * from './remoteKey';
 export * from './remoteKeyForRegenerationRequest';
 export * from './remoteResponse';
@@ -73,6 +88,8 @@ export * from './syncStatus';
 export * from './syncStatusStatusEnum';
 export * from './taxRate';
 export * from './trackingCategory';
+export * from './validationProblemSource';
+export * from './warningValidationProblem';
 
 import * as fs from 'fs';
 
@@ -112,17 +129,30 @@ import { CreditNote } from './creditNote';
 import { CreditNoteStatusEnum } from './creditNoteStatusEnum';
 import { CurrencyEnum } from './currencyEnum';
 import { DataPassthroughRequest } from './dataPassthroughRequest';
+import { DebugModeLog } from './debugModeLog';
+import { DebugModelLogSummary } from './debugModelLogSummary';
 import { EndUserDetailsRequest } from './endUserDetailsRequest';
+import { ErrorValidationProblem } from './errorValidationProblem';
+import { Expense } from './expense';
+import { ExpenseLine } from './expenseLine';
 import { GenerateRemoteKeyRequest } from './generateRemoteKeyRequest';
 import { IncomeStatement } from './incomeStatement';
 import { Invoice } from './invoice';
+import { InvoiceEndpointRequest } from './invoiceEndpointRequest';
 import { InvoiceLineItem } from './invoiceLineItem';
+import { InvoiceLineItemRequest } from './invoiceLineItemRequest';
+import { InvoiceRequest } from './invoiceRequest';
+import { InvoiceResponse } from './invoiceResponse';
 import { InvoiceTypeEnum } from './invoiceTypeEnum';
 import { Issue } from './issue';
 import { IssueStatusEnum } from './issueStatusEnum';
 import { Item } from './item';
 import { JournalEntry } from './journalEntry';
+import { JournalEntryEndpointRequest } from './journalEntryEndpointRequest';
+import { JournalEntryRequest } from './journalEntryRequest';
+import { JournalEntryResponse } from './journalEntryResponse';
 import { JournalLine } from './journalLine';
+import { JournalLineRequest } from './journalLineRequest';
 import { LinkToken } from './linkToken';
 import { MethodEnum } from './methodEnum';
 import { ModelOperation } from './modelOperation';
@@ -134,6 +164,7 @@ import { PaginatedCashFlowStatementList } from './paginatedCashFlowStatementList
 import { PaginatedCompanyInfoList } from './paginatedCompanyInfoList';
 import { PaginatedContactList } from './paginatedContactList';
 import { PaginatedCreditNoteList } from './paginatedCreditNoteList';
+import { PaginatedExpenseList } from './paginatedExpenseList';
 import { PaginatedIncomeStatementList } from './paginatedIncomeStatementList';
 import { PaginatedInvoiceList } from './paginatedInvoiceList';
 import { PaginatedIssueList } from './paginatedIssueList';
@@ -149,6 +180,7 @@ import { PurchaseOrder } from './purchaseOrder';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
 import { PurchaseOrderStatusEnum } from './purchaseOrderStatusEnum';
 import { RemoteData } from './remoteData';
+import { RemoteDataRequest } from './remoteDataRequest';
 import { RemoteKey } from './remoteKey';
 import { RemoteKeyForRegenerationRequest } from './remoteKeyForRegenerationRequest';
 import { RemoteResponse } from './remoteResponse';
@@ -160,6 +192,8 @@ import { SyncStatus } from './syncStatus';
 import { SyncStatusStatusEnum } from './syncStatusStatusEnum';
 import { TaxRate } from './taxRate';
 import { TrackingCategory } from './trackingCategory';
+import { ValidationProblemSource } from './validationProblemSource';
+import { WarningValidationProblem } from './warningValidationProblem';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -210,15 +244,28 @@ let typeMap: {[index: string]: any} = {
     "Contact": Contact,
     "CreditNote": CreditNote,
     "DataPassthroughRequest": DataPassthroughRequest,
+    "DebugModeLog": DebugModeLog,
+    "DebugModelLogSummary": DebugModelLogSummary,
     "EndUserDetailsRequest": EndUserDetailsRequest,
+    "ErrorValidationProblem": ErrorValidationProblem,
+    "Expense": Expense,
+    "ExpenseLine": ExpenseLine,
     "GenerateRemoteKeyRequest": GenerateRemoteKeyRequest,
     "IncomeStatement": IncomeStatement,
     "Invoice": Invoice,
+    "InvoiceEndpointRequest": InvoiceEndpointRequest,
     "InvoiceLineItem": InvoiceLineItem,
+    "InvoiceLineItemRequest": InvoiceLineItemRequest,
+    "InvoiceRequest": InvoiceRequest,
+    "InvoiceResponse": InvoiceResponse,
     "Issue": Issue,
     "Item": Item,
     "JournalEntry": JournalEntry,
+    "JournalEntryEndpointRequest": JournalEntryEndpointRequest,
+    "JournalEntryRequest": JournalEntryRequest,
+    "JournalEntryResponse": JournalEntryResponse,
     "JournalLine": JournalLine,
+    "JournalLineRequest": JournalLineRequest,
     "LinkToken": LinkToken,
     "ModelOperation": ModelOperation,
     "PaginatedAccountDetailsAndActionsList": PaginatedAccountDetailsAndActionsList,
@@ -229,6 +276,7 @@ let typeMap: {[index: string]: any} = {
     "PaginatedCompanyInfoList": PaginatedCompanyInfoList,
     "PaginatedContactList": PaginatedContactList,
     "PaginatedCreditNoteList": PaginatedCreditNoteList,
+    "PaginatedExpenseList": PaginatedExpenseList,
     "PaginatedIncomeStatementList": PaginatedIncomeStatementList,
     "PaginatedInvoiceList": PaginatedInvoiceList,
     "PaginatedIssueList": PaginatedIssueList,
@@ -243,6 +291,7 @@ let typeMap: {[index: string]: any} = {
     "PurchaseOrder": PurchaseOrder,
     "PurchaseOrderLineItem": PurchaseOrderLineItem,
     "RemoteData": RemoteData,
+    "RemoteDataRequest": RemoteDataRequest,
     "RemoteKey": RemoteKey,
     "RemoteKeyForRegenerationRequest": RemoteKeyForRegenerationRequest,
     "RemoteResponse": RemoteResponse,
@@ -250,6 +299,8 @@ let typeMap: {[index: string]: any} = {
     "SyncStatus": SyncStatus,
     "TaxRate": TaxRate,
     "TrackingCategory": TrackingCategory,
+    "ValidationProblemSource": ValidationProblemSource,
+    "WarningValidationProblem": WarningValidationProblem,
 }
 
 export class ObjectSerializer {

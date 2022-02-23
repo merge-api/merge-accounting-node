@@ -40,13 +40,7 @@ export class Item {
     * The item\'s purchase price.
     */
     'purchase_price'?: number | null;
-    /**
-    * The item\'s purchase account.
-    */
     'purchase_account'?: string | null;
-    /**
-    * The item\'s sales account.
-    */
     'sales_account'?: string | null;
     /**
     * When the third party\'s item note was updated.

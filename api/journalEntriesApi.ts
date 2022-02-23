@@ -16,6 +16,8 @@ import http from 'http';
 
 /* tslint:disable:no-unused-locals */
 import { JournalEntry } from '../model/journalEntry';
+import { JournalEntryEndpointRequest } from '../model/journalEntryEndpointRequest';
+import { JournalEntryResponse } from '../model/journalEntryResponse';
 import { PaginatedJournalEntryList } from '../model/paginatedJournalEntryList';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
@@ -91,11 +93,100 @@ export class JournalEntriesApi {
     }
 
     /**
+     * Creates a `JournalEntry` object with the given values.
+     * @param xAccountToken Token identifying the end user.
+     * @param journalEntryEndpointRequest 
+     * @param isDebugMode Whether to include debug fields (such as log file links) in the response.
+     * @param runAsync Whether or not third-party updates should be run asynchronously.
+     */
+    public async journalEntriesCreate (xAccountToken: string, journalEntryEndpointRequest: JournalEntryEndpointRequest, isDebugMode?: boolean, runAsync?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: JournalEntryResponse;  }> {
+        const localVarPath = this.basePath + '/journal-entries';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'xAccountToken' is not null or undefined
+        if (xAccountToken === null || xAccountToken === undefined) {
+            throw new Error('Required parameter xAccountToken was null or undefined when calling journalEntriesCreate.');
+        }
+
+        // verify required parameter 'journalEntryEndpointRequest' is not null or undefined
+        if (journalEntryEndpointRequest === null || journalEntryEndpointRequest === undefined) {
+            throw new Error('Required parameter journalEntryEndpointRequest was null or undefined when calling journalEntriesCreate.');
+        }
+
+        if (isDebugMode !== undefined) {
+            localVarQueryParameters['is_debug_mode'] = ObjectSerializer.serialize(isDebugMode, "boolean");
+        }
+
+        if (runAsync !== undefined) {
+            localVarQueryParameters['run_async'] = ObjectSerializer.serialize(runAsync, "boolean");
+        }
+
+        localVarHeaderParams['X-Account-Token'] = ObjectSerializer.serialize(xAccountToken, "string");
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(journalEntryEndpointRequest, "JournalEntryEndpointRequest")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.tokenAuth.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.tokenAuth.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.IncomingMessage; body: JournalEntryResponse;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "JournalEntryResponse");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
      * Returns a list of `JournalEntry` objects.
      * @param xAccountToken Token identifying the end user.
      * @param createdAfter If provided, will only return objects created after this datetime.
      * @param createdBefore If provided, will only return objects created before this datetime.
      * @param cursor The pagination cursor value.
+     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param includeDeletedData Whether to include data that was deleted in the third-party service.
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param modifiedAfter If provided, will only return objects modified after this datetime.
@@ -103,7 +194,7 @@ export class JournalEntriesApi {
      * @param pageSize Number of results to return per page.
      * @param remoteId The API provider\&#39;s ID for the given object.
      */
-    public async journalEntriesList (xAccountToken: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedJournalEntryList;  }> {
+    public async journalEntriesList (xAccountToken: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, expand?: 'lines' | 'lines,payments' | 'payments', includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedJournalEntryList;  }> {
         const localVarPath = this.basePath + '/journal-entries';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -131,6 +222,10 @@ export class JournalEntriesApi {
 
         if (cursor !== undefined) {
             localVarQueryParameters['cursor'] = ObjectSerializer.serialize(cursor, "string");
+        }
+
+        if (expand !== undefined) {
+            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'lines' | 'lines,payments' | 'payments'");
         }
 
         if (includeDeletedData !== undefined) {
@@ -210,9 +305,10 @@ export class JournalEntriesApi {
      * Returns a `JournalEntry` object with the given `id`.
      * @param xAccountToken Token identifying the end user.
      * @param id 
+     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      */
-    public async journalEntriesRetrieve (xAccountToken: string, id: string, includeRemoteData?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: JournalEntry;  }> {
+    public async journalEntriesRetrieve (xAccountToken: string, id: string, expand?: 'lines' | 'lines,payments' | 'payments', includeRemoteData?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: JournalEntry;  }> {
         const localVarPath = this.basePath + '/journal-entries/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -234,6 +330,10 @@ export class JournalEntriesApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling journalEntriesRetrieve.');
+        }
+
+        if (expand !== undefined) {
+            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'lines' | 'lines,payments' | 'payments'");
         }
 
         if (includeRemoteData !== undefined) {

@@ -96,6 +96,7 @@ export class CompanyInfoApi {
      * @param createdAfter If provided, will only return objects created after this datetime.
      * @param createdBefore If provided, will only return objects created before this datetime.
      * @param cursor The pagination cursor value.
+     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param includeDeletedData Whether to include data that was deleted in the third-party service.
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      * @param modifiedAfter If provided, will only return objects modified after this datetime.
@@ -103,7 +104,7 @@ export class CompanyInfoApi {
      * @param pageSize Number of results to return per page.
      * @param remoteId The API provider\&#39;s ID for the given object.
      */
-    public async companyInfoList (xAccountToken: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedCompanyInfoList;  }> {
+    public async companyInfoList (xAccountToken: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, expand?: 'addresses' | 'addresses,phone_numbers' | 'phone_numbers', includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedCompanyInfoList;  }> {
         const localVarPath = this.basePath + '/company-info';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -131,6 +132,10 @@ export class CompanyInfoApi {
 
         if (cursor !== undefined) {
             localVarQueryParameters['cursor'] = ObjectSerializer.serialize(cursor, "string");
+        }
+
+        if (expand !== undefined) {
+            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'addresses' | 'addresses,phone_numbers' | 'phone_numbers'");
         }
 
         if (includeDeletedData !== undefined) {
@@ -210,9 +215,10 @@ export class CompanyInfoApi {
      * Returns a `CompanyInfo` object with the given `id`.
      * @param xAccountToken Token identifying the end user.
      * @param id 
+     * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      */
-    public async companyInfoRetrieve (xAccountToken: string, id: string, includeRemoteData?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: CompanyInfo;  }> {
+    public async companyInfoRetrieve (xAccountToken: string, id: string, expand?: 'addresses' | 'addresses,phone_numbers' | 'phone_numbers', includeRemoteData?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: CompanyInfo;  }> {
         const localVarPath = this.basePath + '/company-info/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -234,6 +240,10 @@ export class CompanyInfoApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling companyInfoRetrieve.');
+        }
+
+        if (expand !== undefined) {
+            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'addresses' | 'addresses,phone_numbers' | 'phone_numbers'");
         }
 
         if (includeRemoteData !== undefined) {

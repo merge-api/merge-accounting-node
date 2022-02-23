@@ -11,19 +11,15 @@
  */
 
 import { RequestFile } from './models';
-import { JournalLine } from './journalLine';
-import { RemoteData } from './remoteData';
 
 /**
 * # The JournalEntry Object ### Description The `JournalEntry` object is used to represent a company\'s journey entries  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view a company\'s journey entry.
 */
-export class JournalEntry {
-    'id'?: string;
+export class JournalEntryRequest {
     /**
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The journal entry\'s transaction date.
     */
@@ -36,25 +32,14 @@ export class JournalEntry {
     * Array of `Payment` object IDs.
     */
     'payments'?: Array<string>;
-    'lines'?: Array<JournalLine>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string"
-        },
-        {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "transaction_date",
@@ -70,15 +55,10 @@ export class JournalEntry {
             "name": "payments",
             "baseName": "payments",
             "type": "Array<string>"
-        },
-        {
-            "name": "lines",
-            "baseName": "lines",
-            "type": "Array<JournalLine>"
         }    ];
 
     static getAttributeTypeMap() {
-        return JournalEntry.attributeTypeMap;
+        return JournalEntryRequest.attributeTypeMap;
     }
 }
 

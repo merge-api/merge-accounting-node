@@ -15,7 +15,7 @@ import { RequestFile } from './models';
 /**
 * # The JournalLine Object ### Description The `JournalLine` object is used to represent a journal entry\'s line items.  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view the journal entry\'s line items.
 */
-export class JournalLine {
+export class JournalLineRequest {
     /**
     * The third-party API ID of the matching object.
     */
@@ -52,7 +52,7 @@ export class JournalLine {
         }    ];
 
     static getAttributeTypeMap() {
-        return JournalLine.attributeTypeMap;
+        return JournalLineRequest.attributeTypeMap;
     }
 }
 
