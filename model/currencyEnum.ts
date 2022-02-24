@@ -12,7 +12,7 @@
 
 import { RequestFile } from './models';
 
-export enum CurrencyEnum {
+export enum CurrencyEnumExpected {
     Xua = <any> 'XUA',
     Afn = <any> 'AFN',
     Afa = <any> 'AFA',
@@ -320,3 +320,5 @@ export enum CurrencyEnum {
     Zwr = <any> 'ZWR',
     Zwl = <any> 'ZWL'
 }
+
+export type CurrencyEnum = CurrencyEnumExpected | string;

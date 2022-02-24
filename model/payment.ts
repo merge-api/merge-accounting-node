@@ -27,13 +27,7 @@ export class Payment {
     * The payment\'s transaction date.
     */
     'transaction_date'?: Date | null;
-    /**
-    * The payment\'s contact.
-    */
     'contact'?: string | null;
-    /**
-    * The payment\'s account.
-    */
     'account'?: string | null;
     /**
     * The payment\'s total amount.

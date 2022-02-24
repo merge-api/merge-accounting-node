@@ -25,17 +25,30 @@ export * from './creditNote';
 export * from './creditNoteStatusEnum';
 export * from './currencyEnum';
 export * from './dataPassthroughRequest';
+export * from './debugModeLog';
+export * from './debugModelLogSummary';
 export * from './endUserDetailsRequest';
+export * from './errorValidationProblem';
+export * from './expense';
+export * from './expenseLine';
 export * from './generateRemoteKeyRequest';
 export * from './incomeStatement';
 export * from './invoice';
+export * from './invoiceEndpointRequest';
 export * from './invoiceLineItem';
+export * from './invoiceLineItemRequest';
+export * from './invoiceRequest';
+export * from './invoiceResponse';
 export * from './invoiceTypeEnum';
 export * from './issue';
 export * from './issueStatusEnum';
 export * from './item';
 export * from './journalEntry';
+export * from './journalEntryEndpointRequest';
+export * from './journalEntryRequest';
+export * from './journalEntryResponse';
 export * from './journalLine';
+export * from './journalLineRequest';
 export * from './linkToken';
 export * from './methodEnum';
 export * from './modelOperation';
@@ -47,6 +60,7 @@ export * from './paginatedCashFlowStatementList';
 export * from './paginatedCompanyInfoList';
 export * from './paginatedContactList';
 export * from './paginatedCreditNoteList';
+export * from './paginatedExpenseList';
 export * from './paginatedIncomeStatementList';
 export * from './paginatedInvoiceList';
 export * from './paginatedIssueList';
@@ -62,6 +76,7 @@ export * from './purchaseOrder';
 export * from './purchaseOrderLineItem';
 export * from './purchaseOrderStatusEnum';
 export * from './remoteData';
+export * from './remoteDataRequest';
 export * from './remoteKey';
 export * from './remoteKeyForRegenerationRequest';
 export * from './remoteResponse';
@@ -73,6 +88,8 @@ export * from './syncStatus';
 export * from './syncStatusStatusEnum';
 export * from './taxRate';
 export * from './trackingCategory';
+export * from './validationProblemSource';
+export * from './warningValidationProblem';
 
 import * as fs from 'fs';
 
@@ -91,40 +108,53 @@ import { Account } from './account';
 import { AccountDetails } from './accountDetails';
 import { AccountDetailsAndActions } from './accountDetailsAndActions';
 import { AccountDetailsAndActionsIntegration } from './accountDetailsAndActionsIntegration';
-import { AccountDetailsAndActionsStatusEnum } from './accountDetailsAndActionsStatusEnum';
+import { AccountDetailsAndActionsStatusEnum, AccountDetailsAndActionsStatusEnumExpected } from './accountDetailsAndActionsStatusEnum';
 import { AccountIntegration } from './accountIntegration';
-import { AccountStatusEnum } from './accountStatusEnum';
+import { AccountStatusEnum, AccountStatusEnumExpected } from './accountStatusEnum';
 import { AccountToken } from './accountToken';
 import { AccountingAttachment } from './accountingAttachment';
 import { AccountingPhoneNumber } from './accountingPhoneNumber';
 import { Address } from './address';
-import { AddressTypeEnum } from './addressTypeEnum';
+import { AddressTypeEnum, AddressTypeEnumExpected } from './addressTypeEnum';
 import { AvailableActions } from './availableActions';
 import { BalanceSheet } from './balanceSheet';
 import { CashFlowStatement } from './cashFlowStatement';
-import { CategoriesEnum } from './categoriesEnum';
-import { CategoryEnum } from './categoryEnum';
-import { ClassificationEnum } from './classificationEnum';
+import { CategoriesEnum, CategoriesEnumExpected } from './categoriesEnum';
+import { CategoryEnum, CategoryEnumExpected } from './categoryEnum';
+import { ClassificationEnum, ClassificationEnumExpected } from './classificationEnum';
 import { CompanyInfo } from './companyInfo';
 import { Contact } from './contact';
-import { CountryEnum } from './countryEnum';
+import { CountryEnum, CountryEnumExpected } from './countryEnum';
 import { CreditNote } from './creditNote';
-import { CreditNoteStatusEnum } from './creditNoteStatusEnum';
-import { CurrencyEnum } from './currencyEnum';
+import { CreditNoteStatusEnum, CreditNoteStatusEnumExpected } from './creditNoteStatusEnum';
+import { CurrencyEnum, CurrencyEnumExpected } from './currencyEnum';
 import { DataPassthroughRequest } from './dataPassthroughRequest';
+import { DebugModeLog } from './debugModeLog';
+import { DebugModelLogSummary } from './debugModelLogSummary';
 import { EndUserDetailsRequest } from './endUserDetailsRequest';
+import { ErrorValidationProblem } from './errorValidationProblem';
+import { Expense } from './expense';
+import { ExpenseLine } from './expenseLine';
 import { GenerateRemoteKeyRequest } from './generateRemoteKeyRequest';
 import { IncomeStatement } from './incomeStatement';
 import { Invoice } from './invoice';
+import { InvoiceEndpointRequest } from './invoiceEndpointRequest';
 import { InvoiceLineItem } from './invoiceLineItem';
-import { InvoiceTypeEnum } from './invoiceTypeEnum';
+import { InvoiceLineItemRequest } from './invoiceLineItemRequest';
+import { InvoiceRequest } from './invoiceRequest';
+import { InvoiceResponse } from './invoiceResponse';
+import { InvoiceTypeEnum, InvoiceTypeEnumExpected } from './invoiceTypeEnum';
 import { Issue } from './issue';
-import { IssueStatusEnum } from './issueStatusEnum';
+import { IssueStatusEnum, IssueStatusEnumExpected } from './issueStatusEnum';
 import { Item } from './item';
 import { JournalEntry } from './journalEntry';
+import { JournalEntryEndpointRequest } from './journalEntryEndpointRequest';
+import { JournalEntryRequest } from './journalEntryRequest';
+import { JournalEntryResponse } from './journalEntryResponse';
 import { JournalLine } from './journalLine';
+import { JournalLineRequest } from './journalLineRequest';
 import { LinkToken } from './linkToken';
-import { MethodEnum } from './methodEnum';
+import { MethodEnum, MethodEnumExpected } from './methodEnum';
 import { ModelOperation } from './modelOperation';
 import { PaginatedAccountDetailsAndActionsList } from './paginatedAccountDetailsAndActionsList';
 import { PaginatedAccountList } from './paginatedAccountList';
@@ -134,6 +164,7 @@ import { PaginatedCashFlowStatementList } from './paginatedCashFlowStatementList
 import { PaginatedCompanyInfoList } from './paginatedCompanyInfoList';
 import { PaginatedContactList } from './paginatedContactList';
 import { PaginatedCreditNoteList } from './paginatedCreditNoteList';
+import { PaginatedExpenseList } from './paginatedExpenseList';
 import { PaginatedIncomeStatementList } from './paginatedIncomeStatementList';
 import { PaginatedInvoiceList } from './paginatedInvoiceList';
 import { PaginatedIssueList } from './paginatedIssueList';
@@ -147,19 +178,22 @@ import { PaginatedTrackingCategoryList } from './paginatedTrackingCategoryList';
 import { Payment } from './payment';
 import { PurchaseOrder } from './purchaseOrder';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
-import { PurchaseOrderStatusEnum } from './purchaseOrderStatusEnum';
+import { PurchaseOrderStatusEnum, PurchaseOrderStatusEnumExpected } from './purchaseOrderStatusEnum';
 import { RemoteData } from './remoteData';
+import { RemoteDataRequest } from './remoteDataRequest';
 import { RemoteKey } from './remoteKey';
 import { RemoteKeyForRegenerationRequest } from './remoteKeyForRegenerationRequest';
 import { RemoteResponse } from './remoteResponse';
 import { ReportItem } from './reportItem';
-import { RequestFormatEnum } from './requestFormatEnum';
-import { StateEnum } from './stateEnum';
-import { Status7d1Enum } from './status7d1Enum';
+import { RequestFormatEnum, RequestFormatEnumExpected } from './requestFormatEnum';
+import { StateEnum, StateEnumExpected } from './stateEnum';
+import { Status7d1Enum, Status7d1EnumExpected } from './status7d1Enum';
 import { SyncStatus } from './syncStatus';
-import { SyncStatusStatusEnum } from './syncStatusStatusEnum';
+import { SyncStatusStatusEnum, SyncStatusStatusEnumExpected } from './syncStatusStatusEnum';
 import { TaxRate } from './taxRate';
 import { TrackingCategory } from './trackingCategory';
+import { ValidationProblemSource } from './validationProblemSource';
+import { WarningValidationProblem } from './warningValidationProblem';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -174,23 +208,23 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
-        "AccountDetailsAndActionsStatusEnum": AccountDetailsAndActionsStatusEnum,
-        "AccountStatusEnum": AccountStatusEnum,
-        "AddressTypeEnum": AddressTypeEnum,
-        "CategoriesEnum": CategoriesEnum,
-        "CategoryEnum": CategoryEnum,
-        "ClassificationEnum": ClassificationEnum,
-        "CountryEnum": CountryEnum,
-        "CreditNoteStatusEnum": CreditNoteStatusEnum,
-        "CurrencyEnum": CurrencyEnum,
-        "InvoiceTypeEnum": InvoiceTypeEnum,
-        "IssueStatusEnum": IssueStatusEnum,
-        "MethodEnum": MethodEnum,
-        "PurchaseOrderStatusEnum": PurchaseOrderStatusEnum,
-        "RequestFormatEnum": RequestFormatEnum,
-        "StateEnum": StateEnum,
-        "Status7d1Enum": Status7d1Enum,
-        "SyncStatusStatusEnum": SyncStatusStatusEnum,
+        "AccountDetailsAndActionsStatusEnum": AccountDetailsAndActionsStatusEnumExpected,
+        "AccountStatusEnum": AccountStatusEnumExpected,
+        "AddressTypeEnum": AddressTypeEnumExpected,
+        "CategoriesEnum": CategoriesEnumExpected,
+        "CategoryEnum": CategoryEnumExpected,
+        "ClassificationEnum": ClassificationEnumExpected,
+        "CountryEnum": CountryEnumExpected,
+        "CreditNoteStatusEnum": CreditNoteStatusEnumExpected,
+        "CurrencyEnum": CurrencyEnumExpected,
+        "InvoiceTypeEnum": InvoiceTypeEnumExpected,
+        "IssueStatusEnum": IssueStatusEnumExpected,
+        "MethodEnum": MethodEnumExpected,
+        "PurchaseOrderStatusEnum": PurchaseOrderStatusEnumExpected,
+        "RequestFormatEnum": RequestFormatEnumExpected,
+        "StateEnum": StateEnumExpected,
+        "Status7d1Enum": Status7d1EnumExpected,
+        "SyncStatusStatusEnum": SyncStatusStatusEnumExpected,
 }
 
 let typeMap: {[index: string]: any} = {
@@ -210,15 +244,28 @@ let typeMap: {[index: string]: any} = {
     "Contact": Contact,
     "CreditNote": CreditNote,
     "DataPassthroughRequest": DataPassthroughRequest,
+    "DebugModeLog": DebugModeLog,
+    "DebugModelLogSummary": DebugModelLogSummary,
     "EndUserDetailsRequest": EndUserDetailsRequest,
+    "ErrorValidationProblem": ErrorValidationProblem,
+    "Expense": Expense,
+    "ExpenseLine": ExpenseLine,
     "GenerateRemoteKeyRequest": GenerateRemoteKeyRequest,
     "IncomeStatement": IncomeStatement,
     "Invoice": Invoice,
+    "InvoiceEndpointRequest": InvoiceEndpointRequest,
     "InvoiceLineItem": InvoiceLineItem,
+    "InvoiceLineItemRequest": InvoiceLineItemRequest,
+    "InvoiceRequest": InvoiceRequest,
+    "InvoiceResponse": InvoiceResponse,
     "Issue": Issue,
     "Item": Item,
     "JournalEntry": JournalEntry,
+    "JournalEntryEndpointRequest": JournalEntryEndpointRequest,
+    "JournalEntryRequest": JournalEntryRequest,
+    "JournalEntryResponse": JournalEntryResponse,
     "JournalLine": JournalLine,
+    "JournalLineRequest": JournalLineRequest,
     "LinkToken": LinkToken,
     "ModelOperation": ModelOperation,
     "PaginatedAccountDetailsAndActionsList": PaginatedAccountDetailsAndActionsList,
@@ -229,6 +276,7 @@ let typeMap: {[index: string]: any} = {
     "PaginatedCompanyInfoList": PaginatedCompanyInfoList,
     "PaginatedContactList": PaginatedContactList,
     "PaginatedCreditNoteList": PaginatedCreditNoteList,
+    "PaginatedExpenseList": PaginatedExpenseList,
     "PaginatedIncomeStatementList": PaginatedIncomeStatementList,
     "PaginatedInvoiceList": PaginatedInvoiceList,
     "PaginatedIssueList": PaginatedIssueList,
@@ -243,6 +291,7 @@ let typeMap: {[index: string]: any} = {
     "PurchaseOrder": PurchaseOrder,
     "PurchaseOrderLineItem": PurchaseOrderLineItem,
     "RemoteData": RemoteData,
+    "RemoteDataRequest": RemoteDataRequest,
     "RemoteKey": RemoteKey,
     "RemoteKeyForRegenerationRequest": RemoteKeyForRegenerationRequest,
     "RemoteResponse": RemoteResponse,
@@ -250,6 +299,8 @@ let typeMap: {[index: string]: any} = {
     "SyncStatus": SyncStatus,
     "TaxRate": TaxRate,
     "TrackingCategory": TrackingCategory,
+    "ValidationProblemSource": ValidationProblemSource,
+    "WarningValidationProblem": WarningValidationProblem,
 }
 
 export class ObjectSerializer {

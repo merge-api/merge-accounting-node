@@ -11,12 +11,14 @@
  */
 
 import { RequestFile } from './models';
+import { CurrencyEnum } from './currencyEnum';
+import { ExpenseLine } from './expenseLine';
 import { RemoteData } from './remoteData';
 
 /**
-* # The InvoiceLineItem Object ### Description The `InvoiceLineItem` object is used to represent an invoice\'s line items.  ### Usage Example Fetch from the `GET Invoice` endpoint and view the invoice\'s line items.
+* # The Expense Object ### Description The `Expense` object is used to represent a company\'s expenses  ### Usage Example Fetch from the `GET Expense` endpoint and view a company\'s expense.
 */
-export class InvoiceLineItem {
+export class Expense {
     'id'?: string;
     /**
     * The third-party API ID of the matching object.
@@ -24,22 +26,24 @@ export class InvoiceLineItem {
     'remote_id'?: string | null;
     'remote_data'?: Array<RemoteData> | null;
     /**
-    * The line item\'s description.
+    * When the transaction occurred.
     */
-    'description'?: string | null;
+    'transaction_date'?: Date | null;
     /**
-    * The line item\'s unit price.
+    * When the expense was created.
     */
-    'unit_price'?: number | null;
+    'remote_created_at'?: Date | null;
+    'account'?: string | null;
+    'contact'?: string | null;
     /**
-    * The line item\'s quantity.
-    */
-    'quantity'?: number | null;
-    /**
-    * The line item\'s total amount.
+    * The expense\'s total amount.
     */
     'total_amount'?: number | null;
-    'item'?: string | null;
+    /**
+    * The expense\'s currency.
+    */
+    'currency'?: CurrencyEnum | null;
+    'lines'?: Array<ExpenseLine>;
 
     static discriminator: string | undefined = undefined;
 
@@ -60,19 +64,24 @@ export class InvoiceLineItem {
             "type": "Array<RemoteData>"
         },
         {
-            "name": "description",
-            "baseName": "description",
+            "name": "transaction_date",
+            "baseName": "transaction_date",
+            "type": "Date"
+        },
+        {
+            "name": "remote_created_at",
+            "baseName": "remote_created_at",
+            "type": "Date"
+        },
+        {
+            "name": "account",
+            "baseName": "account",
             "type": "string"
         },
         {
-            "name": "unit_price",
-            "baseName": "unit_price",
-            "type": "number"
-        },
-        {
-            "name": "quantity",
-            "baseName": "quantity",
-            "type": "number"
+            "name": "contact",
+            "baseName": "contact",
+            "type": "string"
         },
         {
             "name": "total_amount",
@@ -80,13 +89,18 @@ export class InvoiceLineItem {
             "type": "number"
         },
         {
-            "name": "item",
-            "baseName": "item",
-            "type": "string"
+            "name": "currency",
+            "baseName": "currency",
+            "type": "CurrencyEnum"
+        },
+        {
+            "name": "lines",
+            "baseName": "lines",
+            "type": "Array<ExpenseLine>"
         }    ];
 
     static getAttributeTypeMap() {
-        return InvoiceLineItem.attributeTypeMap;
+        return Expense.attributeTypeMap;
     }
 }
 

@@ -12,7 +12,9 @@
 
 import { RequestFile } from './models';
 
-export enum Status7d1Enum {
+export enum Status7d1EnumExpected {
     Active = <any> 'ACTIVE',
     Archived = <any> 'ARCHIVED'
 }
+
+export type Status7d1Enum = Status7d1EnumExpected | string;

@@ -12,7 +12,9 @@
 
 import { RequestFile } from './models';
 
-export enum InvoiceTypeEnum {
+export enum InvoiceTypeEnumExpected {
     Receivable = <any> 'ACCOUNTS_RECEIVABLE',
     Payable = <any> 'ACCOUNTS_PAYABLE'
 }
+
+export type InvoiceTypeEnum = InvoiceTypeEnumExpected | string;

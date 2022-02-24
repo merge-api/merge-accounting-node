@@ -13,14 +13,17 @@
 import { RequestFile } from './models';
 
 /**
-* # The JournalLine Object ### Description The `JournalLine` object is used to represent a journal entry\'s line items.  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view the journal entry\'s line items.
+* # The ExpenseLine Object ### Description The `ExpenseLine` object is used to represent an expense\'s line items.  ### Usage Example Fetch from the `GET Expense` endpoint and view the expense\'s line items.
 */
-export class JournalLine {
+export class ExpenseLine {
     /**
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'account'?: string | null;
+    /**
+    * The line\'s item.
+    */
+    'item'?: string | null;
     /**
     * The line\'s net amount.
     */
@@ -36,8 +39,8 @@ export class JournalLine {
             "type": "string"
         },
         {
-            "name": "account",
-            "baseName": "account",
+            "name": "item",
+            "baseName": "item",
             "type": "string"
         },
         {
@@ -52,7 +55,7 @@ export class JournalLine {
         }    ];
 
     static getAttributeTypeMap() {
-        return JournalLine.attributeTypeMap;
+        return ExpenseLine.attributeTypeMap;
     }
 }
 

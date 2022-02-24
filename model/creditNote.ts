@@ -56,7 +56,7 @@ export class CreditNote {
     /**
     * Array of `Payment` object IDs
     */
-    'payments': Array<string>;
+    'payments'?: Array<string>;
 
     static discriminator: string | undefined = undefined;
 

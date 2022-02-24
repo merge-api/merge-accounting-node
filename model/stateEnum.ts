@@ -12,7 +12,7 @@
 
 import { RequestFile } from './models';
 
-export enum StateEnum {
+export enum StateEnumExpected {
     Al = <any> 'AL',
     Ak = <any> 'AK',
     As = <any> 'AS',
@@ -73,3 +73,5 @@ export enum StateEnum {
     Wi = <any> 'WI',
     Wy = <any> 'WY'
 }
+
+export type StateEnum = StateEnumExpected | string;

@@ -12,6 +12,7 @@
 
 import { RequestFile } from './models';
 import { CurrencyEnum } from './currencyEnum';
+import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
 import { PurchaseOrderStatusEnum } from './purchaseOrderStatusEnum';
 import { RemoteData } from './remoteData';
 
@@ -49,7 +50,7 @@ export class PurchaseOrder {
     * The purchase order\'s currency.
     */
     'currency'?: CurrencyEnum | null;
-    'line_items'?: Array<string>;
+    'line_items'?: Array<PurchaseOrderLineItem>;
     /**
     * When the third party\'s purchase order note was created.
     */
@@ -110,7 +111,7 @@ export class PurchaseOrder {
         {
             "name": "line_items",
             "baseName": "line_items",
-            "type": "Array<string>"
+            "type": "Array<PurchaseOrderLineItem>"
         },
         {
             "name": "remote_created_at",
