@@ -12,7 +12,9 @@
 
 import { RequestFile } from './models';
 
-export enum AddressTypeEnum {
+export enum AddressTypeEnumExpected {
     Billing = <any> 'BILLING',
     Shipping = <any> 'SHIPPING'
 }
+
+export type AddressTypeEnum = AddressTypeEnumExpected | string;

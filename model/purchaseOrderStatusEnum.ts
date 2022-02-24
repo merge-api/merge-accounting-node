@@ -12,10 +12,12 @@
 
 import { RequestFile } from './models';
 
-export enum PurchaseOrderStatusEnum {
+export enum PurchaseOrderStatusEnumExpected {
     Draft = <any> 'DRAFT',
     Submitted = <any> 'SUBMITTED',
     Authorized = <any> 'AUTHORIZED',
     Billed = <any> 'BILLED',
     Deleted = <any> 'DELETED'
 }
+
+export type PurchaseOrderStatusEnum = PurchaseOrderStatusEnumExpected | string;

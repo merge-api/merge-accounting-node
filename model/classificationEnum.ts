@@ -12,10 +12,12 @@
 
 import { RequestFile } from './models';
 
-export enum ClassificationEnum {
+export enum ClassificationEnumExpected {
     Asset = <any> 'ASSET',
     Equity = <any> 'EQUITY',
     Expense = <any> 'EXPENSE',
     Liability = <any> 'LIABILITY',
     Revenue = <any> 'REVENUE'
 }
+
+export type ClassificationEnum = ClassificationEnumExpected | string;

@@ -108,26 +108,26 @@ import { Account } from './account';
 import { AccountDetails } from './accountDetails';
 import { AccountDetailsAndActions } from './accountDetailsAndActions';
 import { AccountDetailsAndActionsIntegration } from './accountDetailsAndActionsIntegration';
-import { AccountDetailsAndActionsStatusEnum } from './accountDetailsAndActionsStatusEnum';
+import { AccountDetailsAndActionsStatusEnum, AccountDetailsAndActionsStatusEnumExpected } from './accountDetailsAndActionsStatusEnum';
 import { AccountIntegration } from './accountIntegration';
-import { AccountStatusEnum } from './accountStatusEnum';
+import { AccountStatusEnum, AccountStatusEnumExpected } from './accountStatusEnum';
 import { AccountToken } from './accountToken';
 import { AccountingAttachment } from './accountingAttachment';
 import { AccountingPhoneNumber } from './accountingPhoneNumber';
 import { Address } from './address';
-import { AddressTypeEnum } from './addressTypeEnum';
+import { AddressTypeEnum, AddressTypeEnumExpected } from './addressTypeEnum';
 import { AvailableActions } from './availableActions';
 import { BalanceSheet } from './balanceSheet';
 import { CashFlowStatement } from './cashFlowStatement';
-import { CategoriesEnum } from './categoriesEnum';
-import { CategoryEnum } from './categoryEnum';
-import { ClassificationEnum } from './classificationEnum';
+import { CategoriesEnum, CategoriesEnumExpected } from './categoriesEnum';
+import { CategoryEnum, CategoryEnumExpected } from './categoryEnum';
+import { ClassificationEnum, ClassificationEnumExpected } from './classificationEnum';
 import { CompanyInfo } from './companyInfo';
 import { Contact } from './contact';
-import { CountryEnum } from './countryEnum';
+import { CountryEnum, CountryEnumExpected } from './countryEnum';
 import { CreditNote } from './creditNote';
-import { CreditNoteStatusEnum } from './creditNoteStatusEnum';
-import { CurrencyEnum } from './currencyEnum';
+import { CreditNoteStatusEnum, CreditNoteStatusEnumExpected } from './creditNoteStatusEnum';
+import { CurrencyEnum, CurrencyEnumExpected } from './currencyEnum';
 import { DataPassthroughRequest } from './dataPassthroughRequest';
 import { DebugModeLog } from './debugModeLog';
 import { DebugModelLogSummary } from './debugModelLogSummary';
@@ -143,9 +143,9 @@ import { InvoiceLineItem } from './invoiceLineItem';
 import { InvoiceLineItemRequest } from './invoiceLineItemRequest';
 import { InvoiceRequest } from './invoiceRequest';
 import { InvoiceResponse } from './invoiceResponse';
-import { InvoiceTypeEnum } from './invoiceTypeEnum';
+import { InvoiceTypeEnum, InvoiceTypeEnumExpected } from './invoiceTypeEnum';
 import { Issue } from './issue';
-import { IssueStatusEnum } from './issueStatusEnum';
+import { IssueStatusEnum, IssueStatusEnumExpected } from './issueStatusEnum';
 import { Item } from './item';
 import { JournalEntry } from './journalEntry';
 import { JournalEntryEndpointRequest } from './journalEntryEndpointRequest';
@@ -154,7 +154,7 @@ import { JournalEntryResponse } from './journalEntryResponse';
 import { JournalLine } from './journalLine';
 import { JournalLineRequest } from './journalLineRequest';
 import { LinkToken } from './linkToken';
-import { MethodEnum } from './methodEnum';
+import { MethodEnum, MethodEnumExpected } from './methodEnum';
 import { ModelOperation } from './modelOperation';
 import { PaginatedAccountDetailsAndActionsList } from './paginatedAccountDetailsAndActionsList';
 import { PaginatedAccountList } from './paginatedAccountList';
@@ -178,18 +178,18 @@ import { PaginatedTrackingCategoryList } from './paginatedTrackingCategoryList';
 import { Payment } from './payment';
 import { PurchaseOrder } from './purchaseOrder';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
-import { PurchaseOrderStatusEnum } from './purchaseOrderStatusEnum';
+import { PurchaseOrderStatusEnum, PurchaseOrderStatusEnumExpected } from './purchaseOrderStatusEnum';
 import { RemoteData } from './remoteData';
 import { RemoteDataRequest } from './remoteDataRequest';
 import { RemoteKey } from './remoteKey';
 import { RemoteKeyForRegenerationRequest } from './remoteKeyForRegenerationRequest';
 import { RemoteResponse } from './remoteResponse';
 import { ReportItem } from './reportItem';
-import { RequestFormatEnum } from './requestFormatEnum';
-import { StateEnum } from './stateEnum';
-import { Status7d1Enum } from './status7d1Enum';
+import { RequestFormatEnum, RequestFormatEnumExpected } from './requestFormatEnum';
+import { StateEnum, StateEnumExpected } from './stateEnum';
+import { Status7d1Enum, Status7d1EnumExpected } from './status7d1Enum';
 import { SyncStatus } from './syncStatus';
-import { SyncStatusStatusEnum } from './syncStatusStatusEnum';
+import { SyncStatusStatusEnum, SyncStatusStatusEnumExpected } from './syncStatusStatusEnum';
 import { TaxRate } from './taxRate';
 import { TrackingCategory } from './trackingCategory';
 import { ValidationProblemSource } from './validationProblemSource';
@@ -208,23 +208,23 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
-        "AccountDetailsAndActionsStatusEnum": AccountDetailsAndActionsStatusEnum,
-        "AccountStatusEnum": AccountStatusEnum,
-        "AddressTypeEnum": AddressTypeEnum,
-        "CategoriesEnum": CategoriesEnum,
-        "CategoryEnum": CategoryEnum,
-        "ClassificationEnum": ClassificationEnum,
-        "CountryEnum": CountryEnum,
-        "CreditNoteStatusEnum": CreditNoteStatusEnum,
-        "CurrencyEnum": CurrencyEnum,
-        "InvoiceTypeEnum": InvoiceTypeEnum,
-        "IssueStatusEnum": IssueStatusEnum,
-        "MethodEnum": MethodEnum,
-        "PurchaseOrderStatusEnum": PurchaseOrderStatusEnum,
-        "RequestFormatEnum": RequestFormatEnum,
-        "StateEnum": StateEnum,
-        "Status7d1Enum": Status7d1Enum,
-        "SyncStatusStatusEnum": SyncStatusStatusEnum,
+        "AccountDetailsAndActionsStatusEnum": AccountDetailsAndActionsStatusEnumExpected,
+        "AccountStatusEnum": AccountStatusEnumExpected,
+        "AddressTypeEnum": AddressTypeEnumExpected,
+        "CategoriesEnum": CategoriesEnumExpected,
+        "CategoryEnum": CategoryEnumExpected,
+        "ClassificationEnum": ClassificationEnumExpected,
+        "CountryEnum": CountryEnumExpected,
+        "CreditNoteStatusEnum": CreditNoteStatusEnumExpected,
+        "CurrencyEnum": CurrencyEnumExpected,
+        "InvoiceTypeEnum": InvoiceTypeEnumExpected,
+        "IssueStatusEnum": IssueStatusEnumExpected,
+        "MethodEnum": MethodEnumExpected,
+        "PurchaseOrderStatusEnum": PurchaseOrderStatusEnumExpected,
+        "RequestFormatEnum": RequestFormatEnumExpected,
+        "StateEnum": StateEnumExpected,
+        "Status7d1Enum": Status7d1EnumExpected,
+        "SyncStatusStatusEnum": SyncStatusStatusEnumExpected,
 }
 
 let typeMap: {[index: string]: any} = {

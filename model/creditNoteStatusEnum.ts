@@ -12,8 +12,10 @@
 
 import { RequestFile } from './models';
 
-export enum CreditNoteStatusEnum {
+export enum CreditNoteStatusEnumExpected {
     Submitted = <any> 'SUBMITTED',
     Authorized = <any> 'AUTHORIZED',
     Paid = <any> 'PAID'
 }
+
+export type CreditNoteStatusEnum = CreditNoteStatusEnumExpected | string;
