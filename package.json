@@ -4,7 +4,7 @@
   "description": "NodeJS client for merge_accounting_client",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    "url": "git+https://github.com/merge-api/merge-accounting-node.git"
   },
   "main": "dist/api.js",
   "types": "dist/api.d.ts",
@@ -26,7 +26,7 @@
     "typescript": "^4.3.3"
   },
   "bugs": {
-    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID/issues"
+    "url": "https://github.com/merge-api/merge-accounting-node/issues"
   },
-  "homepage": "https://github.com/GIT_USER_ID/GIT_REPO_ID#readme"
+  "homepage": "https://github.com/merge-api/merge-accounting-node#readme"
 }
