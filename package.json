@@ -11,7 +11,7 @@
   "scripts": {
     "clean": "rm -Rf node_modules/ *.js",
     "build": "tsc -p ./tsconfig.json",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm ci --ignore-scripts && npm run build"
   },
   "author": "OpenAPI-Generator Contributors",
   "license": "MIT",
