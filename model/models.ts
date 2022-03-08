@@ -27,6 +27,7 @@ export * from './currencyEnum';
 export * from './dataPassthroughRequest';
 export * from './debugModeLog';
 export * from './debugModelLogSummary';
+export * from './encodingEnum';
 export * from './endUserDetailsRequest';
 export * from './errorValidationProblem';
 export * from './expense';
@@ -52,6 +53,7 @@ export * from './journalLineRequest';
 export * from './linkToken';
 export * from './methodEnum';
 export * from './modelOperation';
+export * from './multipartFormFieldRequest';
 export * from './paginatedAccountDetailsAndActionsList';
 export * from './paginatedAccountList';
 export * from './paginatedAccountingAttachmentList';
@@ -131,6 +133,7 @@ import { CurrencyEnum, CurrencyEnumExpected } from './currencyEnum';
 import { DataPassthroughRequest } from './dataPassthroughRequest';
 import { DebugModeLog } from './debugModeLog';
 import { DebugModelLogSummary } from './debugModelLogSummary';
+import { EncodingEnum, EncodingEnumExpected } from './encodingEnum';
 import { EndUserDetailsRequest } from './endUserDetailsRequest';
 import { ErrorValidationProblem } from './errorValidationProblem';
 import { Expense } from './expense';
@@ -156,6 +159,7 @@ import { JournalLineRequest } from './journalLineRequest';
 import { LinkToken } from './linkToken';
 import { MethodEnum, MethodEnumExpected } from './methodEnum';
 import { ModelOperation } from './modelOperation';
+import { MultipartFormFieldRequest } from './multipartFormFieldRequest';
 import { PaginatedAccountDetailsAndActionsList } from './paginatedAccountDetailsAndActionsList';
 import { PaginatedAccountList } from './paginatedAccountList';
 import { PaginatedAccountingAttachmentList } from './paginatedAccountingAttachmentList';
@@ -217,6 +221,7 @@ let enumsMap: {[index: string]: any} = {
         "CountryEnum": CountryEnumExpected,
         "CreditNoteStatusEnum": CreditNoteStatusEnumExpected,
         "CurrencyEnum": CurrencyEnumExpected,
+        "EncodingEnum": EncodingEnumExpected,
         "InvoiceTypeEnum": InvoiceTypeEnumExpected,
         "IssueStatusEnum": IssueStatusEnumExpected,
         "MethodEnum": MethodEnumExpected,
@@ -268,6 +273,7 @@ let typeMap: {[index: string]: any} = {
     "JournalLineRequest": JournalLineRequest,
     "LinkToken": LinkToken,
     "ModelOperation": ModelOperation,
+    "MultipartFormFieldRequest": MultipartFormFieldRequest,
     "PaginatedAccountDetailsAndActionsList": PaginatedAccountDetailsAndActionsList,
     "PaginatedAccountList": PaginatedAccountList,
     "PaginatedAccountingAttachmentList": PaginatedAccountingAttachmentList,

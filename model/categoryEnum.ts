@@ -15,7 +15,8 @@ import { RequestFile } from './models';
 export enum CategoryEnumExpected {
     Hris = <any> 'hris',
     Ats = <any> 'ats',
-    Accounting = <any> 'accounting'
+    Accounting = <any> 'accounting',
+    Ticketing = <any> 'ticketing'
 }
 
 export type CategoryEnum = CategoryEnumExpected | string;
