@@ -1,4 +1,4 @@
-#  TypeScript SDK
+# Merge Accounting API TypeScript SDK
 
 The unified API for building rich integrations with multiple Accounting & Finance platforms.
 
