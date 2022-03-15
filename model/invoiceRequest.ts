@@ -44,6 +44,10 @@ export class InvoiceRequest {
     */
     'paid_on_date'?: Date | null;
     /**
+    * The invoice\'s private note.
+    */
+    'memo'?: string | null;
+    /**
     * The invoice\'s currency.
     */
     'currency'?: CurrencyEnum | null;
@@ -113,6 +117,11 @@ export class InvoiceRequest {
             "name": "paid_on_date",
             "baseName": "paid_on_date",
             "type": "Date"
+        },
+        {
+            "name": "memo",
+            "baseName": "memo",
+            "type": "string"
         },
         {
             "name": "currency",

@@ -43,6 +43,10 @@ export class Expense {
     * The expense\'s currency.
     */
     'currency'?: CurrencyEnum | null;
+    /**
+    * The expense\'s private note.
+    */
+    'memo'?: string | null;
     'lines'?: Array<ExpenseLine>;
 
     static discriminator: string | undefined = undefined;
@@ -92,6 +96,11 @@ export class Expense {
             "name": "currency",
             "baseName": "currency",
             "type": "CurrencyEnum"
+        },
+        {
+            "name": "memo",
+            "baseName": "memo",
+            "type": "string"
         },
         {
             "name": "lines",
