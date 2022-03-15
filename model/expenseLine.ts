@@ -29,6 +29,11 @@ export class ExpenseLine {
     */
     'net_amount'?: number | null;
     'tracking_category'?: string | null;
+    'account'?: string | null;
+    /**
+    * The line item\'s description.
+    */
+    'description'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -51,6 +56,16 @@ export class ExpenseLine {
         {
             "name": "tracking_category",
             "baseName": "tracking_category",
+            "type": "string"
+        },
+        {
+            "name": "account",
+            "baseName": "account",
+            "type": "string"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string"
         }    ];
 

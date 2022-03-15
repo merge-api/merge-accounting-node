@@ -37,6 +37,10 @@ export class JournalEntry {
     */
     'payments'?: Array<string>;
     'lines'?: Array<JournalLine>;
+    /**
+    * The journal entry\'s private note.
+    */
+    'memo'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -75,6 +79,11 @@ export class JournalEntry {
             "name": "lines",
             "baseName": "lines",
             "type": "Array<JournalLine>"
+        },
+        {
+            "name": "memo",
+            "baseName": "memo",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
