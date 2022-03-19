@@ -194,8 +194,9 @@ export class InvoicesApi {
      * @param modifiedBefore If provided, will only return objects modified before this datetime.
      * @param pageSize Number of results to return per page.
      * @param remoteId The API provider\&#39;s ID for the given object.
+     * @param type If provided, will only return Invoices with this type
      */
-    public async invoicesList (xAccountToken: string, contactId?: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, expand?: 'contact' | 'line_items' | 'line_items,contact' | 'payments' | 'payments,contact' | 'payments,line_items' | 'payments,line_items,contact', includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedInvoiceList;  }> {
+    public async invoicesList (xAccountToken: string, contactId?: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, expand?: 'contact' | 'line_items' | 'line_items,contact' | 'payments' | 'payments,contact' | 'payments,line_items' | 'payments,line_items,contact', includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, type?: '' | 'ACCOUNTS_PAYABLE' | 'ACCOUNTS_RECEIVABLE' | 'null', options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedInvoiceList;  }> {
         const localVarPath = this.basePath + '/invoices';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -255,6 +256,10 @@ export class InvoicesApi {
 
         if (remoteId !== undefined) {
             localVarQueryParameters['remote_id'] = ObjectSerializer.serialize(remoteId, "string");
+        }
+
+        if (type !== undefined) {
+            localVarQueryParameters['type'] = ObjectSerializer.serialize(type, "'' | 'ACCOUNTS_PAYABLE' | 'ACCOUNTS_RECEIVABLE' | 'null'");
         }
 
         localVarHeaderParams['X-Account-Token'] = ObjectSerializer.serialize(xAccountToken, "string");
