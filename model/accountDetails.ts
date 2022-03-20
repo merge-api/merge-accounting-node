@@ -16,6 +16,7 @@ import { CategoryEnum } from './categoryEnum';
 export class AccountDetails {
     'id'?: string;
     'integration'?: string;
+    'integration_slug'?: string;
     'category'?: CategoryEnum | null;
     'end_user_origin_id'?: string;
     'end_user_organization_name'?: string;
@@ -33,6 +34,11 @@ export class AccountDetails {
         {
             "name": "integration",
             "baseName": "integration",
+            "type": "string"
+        },
+        {
+            "name": "integration_slug",
+            "baseName": "integration_slug",
             "type": "string"
         },
         {

@@ -54,6 +54,10 @@ export class Account {
     * The account\'s currency.
     */
     'currency'?: CurrencyEnum | null;
+    /**
+    * The account\'s number.
+    */
+    'account_number'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -107,6 +111,11 @@ export class Account {
             "name": "currency",
             "baseName": "currency",
             "type": "CurrencyEnum"
+        },
+        {
+            "name": "account_number",
+            "baseName": "account_number",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

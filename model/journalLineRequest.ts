@@ -26,6 +26,10 @@ export class JournalLineRequest {
     */
     'net_amount'?: number | null;
     'tracking_category'?: string | null;
+    /**
+    * The line\'s description.
+    */
+    'description'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -48,6 +52,11 @@ export class JournalLineRequest {
         {
             "name": "tracking_category",
             "baseName": "tracking_category",
+            "type": "string"
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string"
         }    ];
 
