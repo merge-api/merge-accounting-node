@@ -22,6 +22,7 @@ export class AccountDetails {
     'end_user_organization_name'?: string;
     'end_user_email_address'?: string;
     'status'?: string;
+    'webhook_listener_url'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -64,6 +65,11 @@ export class AccountDetails {
         {
             "name": "status",
             "baseName": "status",
+            "type": "string"
+        },
+        {
+            "name": "webhook_listener_url",
+            "baseName": "webhook_listener_url",
             "type": "string"
         }    ];
 

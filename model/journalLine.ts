@@ -26,6 +26,7 @@ export class JournalLine {
     */
     'net_amount'?: number | null;
     'tracking_category'?: string | null;
+    'contact'?: string | null;
     /**
     * The line\'s description.
     */
@@ -52,6 +53,11 @@ export class JournalLine {
         {
             "name": "tracking_category",
             "baseName": "tracking_category",
+            "type": "string"
+        },
+        {
+            "name": "contact",
+            "baseName": "contact",
             "type": "string"
         },
         {
