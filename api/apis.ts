@@ -58,6 +58,8 @@ export * from './taxRatesApi';
 import { TaxRatesApi } from './taxRatesApi';
 export * from './trackingCategoriesApi';
 import { TrackingCategoriesApi } from './trackingCategoriesApi';
+export * from './webhookReceiversApi';
+import { WebhookReceiversApi } from './webhookReceiversApi';
 import * as http from 'http';
 
 export class HttpError extends Error {
@@ -69,4 +71,4 @@ export class HttpError extends Error {
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [AccountDetailsApi, AccountTokenApi, AccountsApi, AddressesApi, AttachmentsApi, AvailableActionsApi, BalanceSheetsApi, CashFlowStatementsApi, CompanyInfoApi, ContactsApi, CreditNotesApi, DeleteAccountApi, ExpensesApi, ForceResyncApi, GenerateKeyApi, IncomeStatementsApi, InvoicesApi, IssuesApi, ItemsApi, JournalEntriesApi, LinkTokenApi, LinkedAccountsApi, PassthroughApi, PaymentsApi, PhoneNumbersApi, PurchaseOrdersApi, RegenerateKeyApi, SyncStatusApi, TaxRatesApi, TrackingCategoriesApi];
+export const APIS = [AccountDetailsApi, AccountTokenApi, AccountsApi, AddressesApi, AttachmentsApi, AvailableActionsApi, BalanceSheetsApi, CashFlowStatementsApi, CompanyInfoApi, ContactsApi, CreditNotesApi, DeleteAccountApi, ExpensesApi, ForceResyncApi, GenerateKeyApi, IncomeStatementsApi, InvoicesApi, IssuesApi, ItemsApi, JournalEntriesApi, LinkTokenApi, LinkedAccountsApi, PassthroughApi, PaymentsApi, PhoneNumbersApi, PurchaseOrdersApi, RegenerateKeyApi, SyncStatusApi, TaxRatesApi, TrackingCategoriesApi, WebhookReceiversApi];

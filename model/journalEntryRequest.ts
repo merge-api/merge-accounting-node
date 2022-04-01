@@ -11,6 +11,7 @@
  */
 
 import { RequestFile } from './models';
+import { CurrencyEnum } from './currencyEnum';
 
 /**
 * # The JournalEntry Object ### Description The `JournalEntry` object is used to represent a company\'s journey entries  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view a company\'s journey entry.
@@ -36,6 +37,10 @@ export class JournalEntryRequest {
     * The journal entry\'s private note.
     */
     'memo'?: string | null;
+    /**
+    * The journal\'s currency.
+    */
+    'currency'?: CurrencyEnum | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -64,6 +69,11 @@ export class JournalEntryRequest {
             "name": "memo",
             "baseName": "memo",
             "type": "string"
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "CurrencyEnum"
         }    ];
 
     static getAttributeTypeMap() {

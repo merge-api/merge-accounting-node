@@ -11,6 +11,7 @@
  */
 
 import { RequestFile } from './models';
+import { CurrencyEnum } from './currencyEnum';
 import { JournalLine } from './journalLine';
 import { RemoteData } from './remoteData';
 
@@ -41,6 +42,10 @@ export class JournalEntry {
     * The journal entry\'s private note.
     */
     'memo'?: string | null;
+    /**
+    * The journal\'s currency.
+    */
+    'currency'?: CurrencyEnum | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -84,6 +89,11 @@ export class JournalEntry {
             "name": "memo",
             "baseName": "memo",
             "type": "string"
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "CurrencyEnum"
         }    ];
 
     static getAttributeTypeMap() {

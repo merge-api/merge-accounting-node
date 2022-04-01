@@ -51,6 +51,8 @@ export * from './journalEntryResponse';
 export * from './journalLine';
 export * from './journalLineRequest';
 export * from './linkToken';
+export * from './linkedAccountStatus';
+export * from './metaResponse';
 export * from './methodEnum';
 export * from './modelOperation';
 export * from './multipartFormFieldRequest';
@@ -73,6 +75,7 @@ export * from './paginatedPurchaseOrderList';
 export * from './paginatedSyncStatusList';
 export * from './paginatedTaxRateList';
 export * from './paginatedTrackingCategoryList';
+export * from './paginatedWebhookReceiverList';
 export * from './payment';
 export * from './purchaseOrder';
 export * from './purchaseOrderLineItem';
@@ -92,6 +95,8 @@ export * from './taxRate';
 export * from './trackingCategory';
 export * from './validationProblemSource';
 export * from './warningValidationProblem';
+export * from './webhookReceiver';
+export * from './webhookReceiverRequest';
 
 import * as fs from 'fs';
 
@@ -157,6 +162,8 @@ import { JournalEntryResponse } from './journalEntryResponse';
 import { JournalLine } from './journalLine';
 import { JournalLineRequest } from './journalLineRequest';
 import { LinkToken } from './linkToken';
+import { LinkedAccountStatus } from './linkedAccountStatus';
+import { MetaResponse } from './metaResponse';
 import { MethodEnum, MethodEnumExpected } from './methodEnum';
 import { ModelOperation } from './modelOperation';
 import { MultipartFormFieldRequest } from './multipartFormFieldRequest';
@@ -179,6 +186,7 @@ import { PaginatedPurchaseOrderList } from './paginatedPurchaseOrderList';
 import { PaginatedSyncStatusList } from './paginatedSyncStatusList';
 import { PaginatedTaxRateList } from './paginatedTaxRateList';
 import { PaginatedTrackingCategoryList } from './paginatedTrackingCategoryList';
+import { PaginatedWebhookReceiverList } from './paginatedWebhookReceiverList';
 import { Payment } from './payment';
 import { PurchaseOrder } from './purchaseOrder';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
@@ -198,6 +206,8 @@ import { TaxRate } from './taxRate';
 import { TrackingCategory } from './trackingCategory';
 import { ValidationProblemSource } from './validationProblemSource';
 import { WarningValidationProblem } from './warningValidationProblem';
+import { WebhookReceiver } from './webhookReceiver';
+import { WebhookReceiverRequest } from './webhookReceiverRequest';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -272,6 +282,8 @@ let typeMap: {[index: string]: any} = {
     "JournalLine": JournalLine,
     "JournalLineRequest": JournalLineRequest,
     "LinkToken": LinkToken,
+    "LinkedAccountStatus": LinkedAccountStatus,
+    "MetaResponse": MetaResponse,
     "ModelOperation": ModelOperation,
     "MultipartFormFieldRequest": MultipartFormFieldRequest,
     "PaginatedAccountDetailsAndActionsList": PaginatedAccountDetailsAndActionsList,
@@ -293,6 +305,7 @@ let typeMap: {[index: string]: any} = {
     "PaginatedSyncStatusList": PaginatedSyncStatusList,
     "PaginatedTaxRateList": PaginatedTaxRateList,
     "PaginatedTrackingCategoryList": PaginatedTrackingCategoryList,
+    "PaginatedWebhookReceiverList": PaginatedWebhookReceiverList,
     "Payment": Payment,
     "PurchaseOrder": PurchaseOrder,
     "PurchaseOrderLineItem": PurchaseOrderLineItem,
@@ -307,6 +320,8 @@ let typeMap: {[index: string]: any} = {
     "TrackingCategory": TrackingCategory,
     "ValidationProblemSource": ValidationProblemSource,
     "WarningValidationProblem": WarningValidationProblem,
+    "WebhookReceiver": WebhookReceiver,
+    "WebhookReceiverRequest": WebhookReceiverRequest,
 }
 
 export class ObjectSerializer {
