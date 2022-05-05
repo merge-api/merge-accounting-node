@@ -38,6 +38,7 @@ export class InvoiceLineItemRequest {
     'total_amount'?: number | null;
     'item'?: string | null;
     'account'?: string | null;
+    'tracking_category'?: string | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -75,6 +76,11 @@ export class InvoiceLineItemRequest {
         {
             "name": "account",
             "baseName": "account",
+            "type": "string"
+        },
+        {
+            "name": "tracking_category",
+            "baseName": "tracking_category",
             "type": "string"
         }    ];
 

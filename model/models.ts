@@ -75,7 +75,6 @@ export * from './paginatedPurchaseOrderList';
 export * from './paginatedSyncStatusList';
 export * from './paginatedTaxRateList';
 export * from './paginatedTrackingCategoryList';
-export * from './paginatedWebhookReceiverList';
 export * from './payment';
 export * from './purchaseOrder';
 export * from './purchaseOrderLineItem';
@@ -186,7 +185,6 @@ import { PaginatedPurchaseOrderList } from './paginatedPurchaseOrderList';
 import { PaginatedSyncStatusList } from './paginatedSyncStatusList';
 import { PaginatedTaxRateList } from './paginatedTaxRateList';
 import { PaginatedTrackingCategoryList } from './paginatedTrackingCategoryList';
-import { PaginatedWebhookReceiverList } from './paginatedWebhookReceiverList';
 import { Payment } from './payment';
 import { PurchaseOrder } from './purchaseOrder';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
@@ -305,7 +303,6 @@ let typeMap: {[index: string]: any} = {
     "PaginatedSyncStatusList": PaginatedSyncStatusList,
     "PaginatedTaxRateList": PaginatedTaxRateList,
     "PaginatedTrackingCategoryList": PaginatedTrackingCategoryList,
-    "PaginatedWebhookReceiverList": PaginatedWebhookReceiverList,
     "Payment": Payment,
     "PurchaseOrder": PurchaseOrder,
     "PurchaseOrderLineItem": PurchaseOrderLineItem,

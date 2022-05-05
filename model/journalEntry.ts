@@ -37,7 +37,6 @@ export class JournalEntry {
     * Array of `Payment` object IDs.
     */
     'payments'?: Array<string>;
-    'lines'?: Array<JournalLine>;
     /**
     * The journal entry\'s private note.
     */
@@ -46,6 +45,7 @@ export class JournalEntry {
     * The journal\'s currency.
     */
     'currency'?: CurrencyEnum | null;
+    'lines'?: Array<JournalLine>;
 
     static discriminator: string | undefined = undefined;
 
@@ -81,11 +81,6 @@ export class JournalEntry {
             "type": "Array<string>"
         },
         {
-            "name": "lines",
-            "baseName": "lines",
-            "type": "Array<JournalLine>"
-        },
-        {
             "name": "memo",
             "baseName": "memo",
             "type": "string"
@@ -94,6 +89,11 @@ export class JournalEntry {
             "name": "currency",
             "baseName": "currency",
             "type": "CurrencyEnum"
+        },
+        {
+            "name": "lines",
+            "baseName": "lines",
+            "type": "Array<JournalLine>"
         }    ];
 
     static getAttributeTypeMap() {
