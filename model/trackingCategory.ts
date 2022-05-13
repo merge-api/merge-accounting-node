@@ -32,6 +32,10 @@ export class TrackingCategory {
     * The tracking category\'s status.
     */
     'status'?: Status7d1Enum | null;
+    /**
+    * Indicates whether or not this object has been deleted on the third-party.
+    */
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -60,6 +64,11 @@ export class TrackingCategory {
             "name": "status",
             "baseName": "status",
             "type": "Status7d1Enum"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

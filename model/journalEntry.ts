@@ -16,7 +16,7 @@ import { JournalLine } from './journalLine';
 import { RemoteData } from './remoteData';
 
 /**
-* # The JournalEntry Object ### Description The `JournalEntry` object is used to represent a company\'s journey entries  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view a company\'s journey entry.
+* # The JournalEntry Object ### Description The `JournalEntry` object is used to represent a company\'s journey entries.  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view a company\'s journey entry.
 */
 export class JournalEntry {
     'id'?: string;
@@ -46,6 +46,7 @@ export class JournalEntry {
     */
     'currency'?: CurrencyEnum | null;
     'lines'?: Array<JournalLine>;
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -94,6 +95,11 @@ export class JournalEntry {
             "name": "lines",
             "baseName": "lines",
             "type": "Array<JournalLine>"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

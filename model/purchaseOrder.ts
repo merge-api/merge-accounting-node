@@ -59,6 +59,10 @@ export class PurchaseOrder {
     * When the third party\'s purchase order note was updated.
     */
     'remote_updated_at'?: Date | null;
+    /**
+    * Indicates whether or not this object has been deleted on the third-party.
+    */
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -122,6 +126,11 @@ export class PurchaseOrder {
             "name": "remote_updated_at",
             "baseName": "remote_updated_at",
             "type": "Date"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

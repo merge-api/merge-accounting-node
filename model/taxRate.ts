@@ -35,6 +35,10 @@ export class TaxRate {
     * The tax rate\'s effective tax rate.
     */
     'effective_tax_rate'?: number | null;
+    /**
+    * Indicates whether or not this object has been deleted on the third-party.
+    */
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -68,6 +72,11 @@ export class TaxRate {
             "name": "effective_tax_rate",
             "baseName": "effective_tax_rate",
             "type": "number"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

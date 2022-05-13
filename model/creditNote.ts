@@ -57,6 +57,10 @@ export class CreditNote {
     * Array of `Payment` object IDs
     */
     'payments'?: Array<string>;
+    /**
+    * Indicates whether or not this object has been deleted on the third-party.
+    */
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -115,6 +119,11 @@ export class CreditNote {
             "name": "payments",
             "baseName": "payments",
             "type": "Array<string>"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

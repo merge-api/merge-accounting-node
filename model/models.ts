@@ -75,6 +75,7 @@ export * from './paginatedPurchaseOrderList';
 export * from './paginatedSyncStatusList';
 export * from './paginatedTaxRateList';
 export * from './paginatedTrackingCategoryList';
+export * from './paginatedVendorCreditList';
 export * from './payment';
 export * from './purchaseOrder';
 export * from './purchaseOrderLineItem';
@@ -93,6 +94,8 @@ export * from './syncStatusStatusEnum';
 export * from './taxRate';
 export * from './trackingCategory';
 export * from './validationProblemSource';
+export * from './vendorCredit';
+export * from './vendorCreditLine';
 export * from './warningValidationProblem';
 export * from './webhookReceiver';
 export * from './webhookReceiverRequest';
@@ -185,6 +188,7 @@ import { PaginatedPurchaseOrderList } from './paginatedPurchaseOrderList';
 import { PaginatedSyncStatusList } from './paginatedSyncStatusList';
 import { PaginatedTaxRateList } from './paginatedTaxRateList';
 import { PaginatedTrackingCategoryList } from './paginatedTrackingCategoryList';
+import { PaginatedVendorCreditList } from './paginatedVendorCreditList';
 import { Payment } from './payment';
 import { PurchaseOrder } from './purchaseOrder';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
@@ -203,6 +207,8 @@ import { SyncStatusStatusEnum, SyncStatusStatusEnumExpected } from './syncStatus
 import { TaxRate } from './taxRate';
 import { TrackingCategory } from './trackingCategory';
 import { ValidationProblemSource } from './validationProblemSource';
+import { VendorCredit } from './vendorCredit';
+import { VendorCreditLine } from './vendorCreditLine';
 import { WarningValidationProblem } from './warningValidationProblem';
 import { WebhookReceiver } from './webhookReceiver';
 import { WebhookReceiverRequest } from './webhookReceiverRequest';
@@ -303,6 +309,7 @@ let typeMap: {[index: string]: any} = {
     "PaginatedSyncStatusList": PaginatedSyncStatusList,
     "PaginatedTaxRateList": PaginatedTaxRateList,
     "PaginatedTrackingCategoryList": PaginatedTrackingCategoryList,
+    "PaginatedVendorCreditList": PaginatedVendorCreditList,
     "Payment": Payment,
     "PurchaseOrder": PurchaseOrder,
     "PurchaseOrderLineItem": PurchaseOrderLineItem,
@@ -316,6 +323,8 @@ let typeMap: {[index: string]: any} = {
     "TaxRate": TaxRate,
     "TrackingCategory": TrackingCategory,
     "ValidationProblemSource": ValidationProblemSource,
+    "VendorCredit": VendorCredit,
+    "VendorCreditLine": VendorCreditLine,
     "WarningValidationProblem": WarningValidationProblem,
     "WebhookReceiver": WebhookReceiver,
     "WebhookReceiverRequest": WebhookReceiverRequest,

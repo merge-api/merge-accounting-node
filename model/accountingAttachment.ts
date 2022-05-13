@@ -31,6 +31,10 @@ export class AccountingAttachment {
     * The attachment\'s url.
     */
     'file_url'?: string | null;
+    /**
+    * Indicates whether or not this object has been deleted on the third-party.
+    */
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -59,6 +63,11 @@ export class AccountingAttachment {
             "name": "file_url",
             "baseName": "file_url",
             "type": "string"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

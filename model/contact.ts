@@ -65,6 +65,10 @@ export class Contact {
     * `AccountingPhoneNumber` object for the given `Contacts` object.
     */
     'phone_numbers'?: Array<AccountingPhoneNumber>;
+    /**
+    * Indicates whether or not this object has been deleted on the third-party.
+    */
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -133,6 +137,11 @@ export class Contact {
             "name": "phone_numbers",
             "baseName": "phone_numbers",
             "type": "Array<AccountingPhoneNumber>"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {
