@@ -52,6 +52,10 @@ export class IncomeStatement {
     * The income statement\'s net income.
     */
     'net_income'?: number | null;
+    /**
+    * Indicates whether or not this object has been deleted on the third-party.
+    */
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -120,6 +124,11 @@ export class IncomeStatement {
             "name": "net_income",
             "baseName": "net_income",
             "type": "number"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

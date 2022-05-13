@@ -14,7 +14,7 @@ import { RequestFile } from './models';
 import { CurrencyEnum } from './currencyEnum';
 
 /**
-* # The JournalEntry Object ### Description The `JournalEntry` object is used to represent a company\'s journey entries  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view a company\'s journey entry.
+* # The JournalEntry Object ### Description The `JournalEntry` object is used to represent a company\'s journey entries.  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view a company\'s journey entry.
 */
 export class JournalEntryRequest {
     /**

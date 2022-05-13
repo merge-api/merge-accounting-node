@@ -84,6 +84,7 @@ export class Invoice {
     */
     'payments'?: Array<string>;
     'line_items'?: Array<InvoiceLineItem>;
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -182,6 +183,11 @@ export class Invoice {
             "name": "line_items",
             "baseName": "line_items",
             "type": "Array<InvoiceLineItem>"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

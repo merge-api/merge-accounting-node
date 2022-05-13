@@ -60,6 +60,10 @@ export class CompanyInfo {
     'urls'?: Array<string> | null;
     'addresses'?: Array<Address>;
     'phone_numbers'?: Array<AccountingPhoneNumber>;
+    /**
+    * Indicates whether or not this object has been deleted on the third-party.
+    */
+    'remote_was_deleted'?: boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -128,6 +132,11 @@ export class CompanyInfo {
             "name": "phone_numbers",
             "baseName": "phone_numbers",
             "type": "Array<AccountingPhoneNumber>"
+        },
+        {
+            "name": "remote_was_deleted",
+            "baseName": "remote_was_deleted",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

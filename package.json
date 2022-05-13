@@ -1,6 +1,6 @@
 {
   "name": "@mergeapi/merge-accounting-node",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "NodeJS client for @mergeapi/merge-accounting-node",
   "repository": {
     "type": "git",
