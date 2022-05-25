@@ -11,7 +11,6 @@
  */
 
 import { RequestFile } from './models';
-import { RemoteData } from './remoteData';
 
 /**
 * # The Accounting Attachment Object ### Description The `AccountingAttachment` object is used to represent a company\'s attachments.  ### Usage Example Fetch from the `LIST AccountingAttachments` endpoint and view a company\'s attachments.
@@ -22,7 +21,6 @@ export class AccountingAttachment {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The attachment\'s name.
     */
@@ -48,11 +46,6 @@ export class AccountingAttachment {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "file_name",

@@ -11,7 +11,6 @@
  */
 
 import { RequestFile } from './models';
-import { RemoteData } from './remoteData';
 
 /**
 * # The Payment Object ### Description The `Payment` object is used to represent a invoice\'s payment.  ### Usage Example Fetch from the `GET Payment` endpoint and view an invoice\'s payment.
@@ -22,7 +21,6 @@ export class Payment {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The payment\'s transaction date.
     */
@@ -54,11 +52,6 @@ export class Payment {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "transaction_date",

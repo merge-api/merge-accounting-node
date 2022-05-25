@@ -11,7 +11,6 @@
  */
 
 import { RequestFile } from './models';
-import { RemoteData } from './remoteData';
 import { ReportItem } from './reportItem';
 
 /**
@@ -23,7 +22,6 @@ export class IncomeStatement {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The income statement\'s name.
     */
@@ -69,11 +67,6 @@ export class IncomeStatement {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "name",

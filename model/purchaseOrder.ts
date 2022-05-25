@@ -14,7 +14,6 @@ import { RequestFile } from './models';
 import { CurrencyEnum } from './currencyEnum';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
 import { PurchaseOrderStatusEnum } from './purchaseOrderStatusEnum';
-import { RemoteData } from './remoteData';
 
 /**
 * # The PurchaseOrder Object ### Description The `PurchaseOrder` object is used to represent a company\'s purchase orders.  ### Usage Example Fetch from the `LIST PurchaseOrders` endpoint and view a company\'s purchase orders.
@@ -25,7 +24,6 @@ export class PurchaseOrder {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The purchase order\'s status.
     */
@@ -76,11 +74,6 @@ export class PurchaseOrder {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "status",

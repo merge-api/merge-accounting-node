@@ -13,7 +13,6 @@
 import { RequestFile } from './models';
 import { CurrencyEnum } from './currencyEnum';
 import { JournalLine } from './journalLine';
-import { RemoteData } from './remoteData';
 
 /**
 * # The JournalEntry Object ### Description The `JournalEntry` object is used to represent a company\'s journey entries.  ### Usage Example Fetch from the `GET JournalEntry` endpoint and view a company\'s journey entry.
@@ -24,7 +23,6 @@ export class JournalEntry {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The journal entry\'s transaction date.
     */
@@ -60,11 +58,6 @@ export class JournalEntry {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "transaction_date",

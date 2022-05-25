@@ -14,7 +14,6 @@ import { RequestFile } from './models';
 import { AccountStatusEnum } from './accountStatusEnum';
 import { ClassificationEnum } from './classificationEnum';
 import { CurrencyEnum } from './currencyEnum';
-import { RemoteData } from './remoteData';
 
 /**
 * # The Account Object ### Description The `Account` object is what businesses use to track transactions. Accountants often call accounts \"ledgers\".  ### Usage Example Fetch from the `LIST Accounts` endpoint and view a company\'s accounts.
@@ -25,7 +24,6 @@ export class Account {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The account\'s name.
     */
@@ -75,11 +73,6 @@ export class Account {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "name",

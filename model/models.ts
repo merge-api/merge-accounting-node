@@ -80,8 +80,6 @@ export * from './payment';
 export * from './purchaseOrder';
 export * from './purchaseOrderLineItem';
 export * from './purchaseOrderStatusEnum';
-export * from './remoteData';
-export * from './remoteDataRequest';
 export * from './remoteKey';
 export * from './remoteKeyForRegenerationRequest';
 export * from './remoteResponse';
@@ -193,8 +191,6 @@ import { Payment } from './payment';
 import { PurchaseOrder } from './purchaseOrder';
 import { PurchaseOrderLineItem } from './purchaseOrderLineItem';
 import { PurchaseOrderStatusEnum, PurchaseOrderStatusEnumExpected } from './purchaseOrderStatusEnum';
-import { RemoteData } from './remoteData';
-import { RemoteDataRequest } from './remoteDataRequest';
 import { RemoteKey } from './remoteKey';
 import { RemoteKeyForRegenerationRequest } from './remoteKeyForRegenerationRequest';
 import { RemoteResponse } from './remoteResponse';
@@ -313,8 +309,6 @@ let typeMap: {[index: string]: any} = {
     "Payment": Payment,
     "PurchaseOrder": PurchaseOrder,
     "PurchaseOrderLineItem": PurchaseOrderLineItem,
-    "RemoteData": RemoteData,
-    "RemoteDataRequest": RemoteDataRequest,
     "RemoteKey": RemoteKey,
     "RemoteKeyForRegenerationRequest": RemoteKeyForRegenerationRequest,
     "RemoteResponse": RemoteResponse,

@@ -11,7 +11,6 @@
  */
 
 import { RequestFile } from './models';
-import { RemoteData } from './remoteData';
 
 /**
 * # The InvoiceLineItem Object ### Description The `InvoiceLineItem` object is used to represent an invoice\'s line items.  ### Usage Example Fetch from the `GET Invoice` endpoint and view the invoice\'s line items.
@@ -22,7 +21,6 @@ export class InvoiceLineItem {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The line item\'s description.
     */
@@ -55,11 +53,6 @@ export class InvoiceLineItem {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "description",

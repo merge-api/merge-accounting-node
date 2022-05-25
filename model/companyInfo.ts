@@ -14,7 +14,6 @@ import { RequestFile } from './models';
 import { AccountingPhoneNumber } from './accountingPhoneNumber';
 import { Address } from './address';
 import { CurrencyEnum } from './currencyEnum';
-import { RemoteData } from './remoteData';
 
 /**
 * # The CompanyInfo Object ### Description The `CompanyInfo` object is used to represent a company\'s information.  ### Usage Example Fetch from the `GET CompanyInfo` endpoint and view a company\'s information.
@@ -25,7 +24,6 @@ export class CompanyInfo {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The company\'s name.
     */
@@ -77,11 +75,6 @@ export class CompanyInfo {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "name",

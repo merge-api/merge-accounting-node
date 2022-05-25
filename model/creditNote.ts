@@ -13,7 +13,6 @@
 import { RequestFile } from './models';
 import { CreditNoteStatusEnum } from './creditNoteStatusEnum';
 import { CurrencyEnum } from './currencyEnum';
-import { RemoteData } from './remoteData';
 
 /**
 * # The CreditNote Object ### Description The `CreditNote` object is used to represent a refund or credit of payment.  ### Usage Example Fetch from the `LIST CreditNotes` endpoint and view a company\'s credit notes.
@@ -24,7 +23,6 @@ export class CreditNote {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The credit note\'s transaction date.
     */
@@ -74,11 +72,6 @@ export class CreditNote {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "transaction_date",

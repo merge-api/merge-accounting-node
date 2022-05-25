@@ -12,7 +12,6 @@
 
 import { RequestFile } from './models';
 import { AccountingPhoneNumber } from './accountingPhoneNumber';
-import { RemoteData } from './remoteData';
 import { Status7d1Enum } from './status7d1Enum';
 
 /**
@@ -24,7 +23,6 @@ export class Contact {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The contact\'s name.
     */
@@ -82,11 +80,6 @@ export class Contact {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "name",

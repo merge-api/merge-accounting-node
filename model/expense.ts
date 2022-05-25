@@ -13,7 +13,6 @@
 import { RequestFile } from './models';
 import { CurrencyEnum } from './currencyEnum';
 import { ExpenseLine } from './expenseLine';
-import { RemoteData } from './remoteData';
 
 /**
 * # The Expense Object ### Description The `Expense` object is used to represent a company\'s expenses  ### Usage Example Fetch from the `GET Expense` endpoint and view a company\'s expense.
@@ -24,7 +23,6 @@ export class Expense {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * When the transaction occurred.
     */
@@ -65,11 +63,6 @@ export class Expense {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "transaction_date",

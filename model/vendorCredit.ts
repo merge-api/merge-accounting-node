@@ -12,7 +12,6 @@
 
 import { RequestFile } from './models';
 import { CurrencyEnum } from './currencyEnum';
-import { RemoteData } from './remoteData';
 import { VendorCreditLine } from './vendorCreditLine';
 
 /**
@@ -24,7 +23,6 @@ export class VendorCredit {
     * The third-party API ID of the matching object.
     */
     'remote_id'?: string | null;
-    'remote_data'?: Array<RemoteData> | null;
     /**
     * The vendor credit\'s number.
     */
@@ -60,11 +58,6 @@ export class VendorCredit {
             "name": "remote_id",
             "baseName": "remote_id",
             "type": "string"
-        },
-        {
-            "name": "remote_data",
-            "baseName": "remote_data",
-            "type": "Array<RemoteData>"
         },
         {
             "name": "number",
