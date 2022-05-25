@@ -104,7 +104,7 @@ export class VendorCreditsApi {
      * @param pageSize Number of results to return per page.
      * @param remoteId The API provider\&#39;s ID for the given object.
      */
-    public async vendorCreditsList (xAccountToken: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, expand?: 'lines', includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedVendorCreditList;  }> {
+    public async vendorCreditsList (xAccountToken: string, createdAfter?: Date, createdBefore?: Date, cursor?: string, expand?: 'lines' | 'lines,vendor' | 'vendor', includeDeletedData?: boolean, includeRemoteData?: boolean, modifiedAfter?: Date, modifiedBefore?: Date, pageSize?: number, remoteId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: PaginatedVendorCreditList;  }> {
         const localVarPath = this.basePath + '/vendor-credits';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -135,7 +135,7 @@ export class VendorCreditsApi {
         }
 
         if (expand !== undefined) {
-            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'lines'");
+            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'lines' | 'lines,vendor' | 'vendor'");
         }
 
         if (includeDeletedData !== undefined) {
@@ -218,7 +218,7 @@ export class VendorCreditsApi {
      * @param expand Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.
      * @param includeRemoteData Whether to include the original data Merge fetched from the third-party to produce these models.
      */
-    public async vendorCreditsRetrieve (xAccountToken: string, id: string, expand?: 'lines', includeRemoteData?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: VendorCredit;  }> {
+    public async vendorCreditsRetrieve (xAccountToken: string, id: string, expand?: 'lines' | 'lines,vendor' | 'vendor', includeRemoteData?: boolean, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: VendorCredit;  }> {
         const localVarPath = this.basePath + '/vendor-credits/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
@@ -243,7 +243,7 @@ export class VendorCreditsApi {
         }
 
         if (expand !== undefined) {
-            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'lines'");
+            localVarQueryParameters['expand'] = ObjectSerializer.serialize(expand, "'lines' | 'lines,vendor' | 'vendor'");
         }
 
         if (includeRemoteData !== undefined) {
